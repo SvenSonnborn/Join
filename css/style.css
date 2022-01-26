@@ -1,9 +1,19 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: ** pt sans family einfügen **;
 }
 .flex{
     display: flex;
     justify-content: center;
     align-self: center;
+}
+.maincolor{
+    color: blue;
+}
+.maincolorbackground{
+    background-color: blue;
+}
+.button{
+
 }
