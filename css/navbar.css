@@ -1,0 +1,36 @@
+.img-user {
+    border-color: aliceblue;
+    border-radius: 100%;
+}
+
+.navbar {
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 20vw;
+}
+
+.navbar img {
+    object-fit: cover;
+    height: 150px;
+    width: 50px;
+}
+
+.content {
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+    height: 100vh;
+    width: 20vw;
+}
+
+.nav-links a {
+    display: flex;
+    flex-direction: column;
+    color: aliceblue;
+}
