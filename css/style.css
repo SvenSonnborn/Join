@@ -2,6 +2,8 @@
     padding: 0;
     margin: 0;
     font-family: ** pt sans family einfügen **;
+    box-sizing: border-box;
+
 }
 .flex{
     display: flex;
