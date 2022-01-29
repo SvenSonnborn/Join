@@ -1,4 +1,4 @@
-.section{
+.section {
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -8,30 +8,87 @@
     padding: 80px 30px;
 }
 
-header{
+header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
 }
 
-header span{
+.d-flex-center {
+    display: flex;
+    align-items: center;
+}
+
+header span {
     color: blue;
     line-height: 2em;
 }
 
-.columnNames{
+.columnNames {
     width: 100%;
     margin-top: 60px;
     margin-bottom: 10px;
     color: blue;
     display: flex;
-    align-items: center;
-    justify-content: space-between
+    gap: 20px;
+    padding:5px 8px;
+}
 
+.columnAssignedTo {
+    flex: 3;
+}
+
+.columnCategory {
+    flex: 2;
+}
+
+.columnDdetails {
+    flex: 5;
+}
+
+#allTasks {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    gap: 20px;
+}
+
+#taskContainer {
+    width: 100%;
+    display: flex;
+    /* flexbox subcontainers parts: 3 - 2 - 5 */
+    gap: 20px;
+    background-color: rgba(211, 211, 211, 0.281);
+    padding: 8px;
+    border-left: 6px solid green;
+    border-radius: 8px;
+}
+
+
+.assignedTo {
+    flex: 3;
+}
+
+.assignedTo img {
+    width: 55px;
+    border-radius: 50%;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.assignedTo #userEmail {
+    color: blue;
 }
 
 
 
+.taskCategory {
+    flex: 2;
 
-    
+}
+
+.taskDetails {
+    flex: 5;
+}
