@@ -8,26 +8,88 @@
     <title>Join - Gruppenarbeit - 150</title>
 
     <!--CSS FILES-->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/addTask.css">
+    <link rel="stylesheet" href="./css/dtsel.css">
+
 
     <!--JS FILES-->
-    <link rel="stylesheet" href="js/main.js">
+    <script src="./js/addTask.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/dtsel.js"></script>
+
+
 
 </head>
 
-<body>
+<body onload="load()">
+    <div class="flex Complete">
+        <div w3-include-html="template/navbar.html" class="content maincolorbackground"></div>
 
-    <div class="flex" style="width: 100vw;">
-        <div style="background-color: rgba(27, 80, 255, 0.795); height: 100vh; width: 20%;">
+        <div class="rightbox">
+            <div class="headline">
+                <h2>Add Task</h2>
+                <p class="maincolor">Learning Management System Project</p>
+            </div>
 
-        </div>
-
-        <div style="background-color: brown; height: 100vh; width: 80%;">
+            <div class="selectionBox bgGray">
+                <div class="doublebox">
+                    <div class="singlebox">
+                        <h3 class="maincolor">TITLE</h3>
+                        <input type="text" class="inputfield" placeholder="Type in Titel">
+                    </div>
+                    <div class="singlebox">
+                        <h3 class="maincolor">DUE DATE</h3>
+                        <div class="datepicker" id="Datepicker">
+                            <input class="inputfield pointer datepickerArea" name="dateTimePicker">
+                            <img src="./img/icons8-calendar-150.png" class="Calender">
+                        </div>
+                    </div>
+                </div>
+                <div class="doublebox">
+                    <div class="singlebox">
+                        <h3 class="maincolor">CATEGORY</h3>
+                        <select name="Category" id="Category" class="inputfield pointer">
+                            <option value="Marketing">Marketing</option>
+                            <option value="Production">Production</option>
+                            <option value="Sale">Sale</option>
+                            <option value="Designer">Designer</option>
+                        </select>
+                    </div>
+                    <div class="singlebox">
+                        <h3 class="maincolor">URGENCY</h3>
+                        <select name="Urgency" id="Urgency" class="inputfield pointer">
+                            <option value="High">High</option>
+                            <option value="Mid">Mid</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="doublebox">
+                    <div class="singlebox">
+                        <h3 class="maincolor">DESCRIPTION</h3>
+                        <input type="text" class="inputfield">
+                    </div>
+                    <div class="singlebox assignedBox">
+                        <h3 class="maincolor">ASSIGNED TO</h3>
+                        <img src="./img/icon plus.png">
+                    </div>
+                </div>
+            </div>
 
         </div>
 
     </div>
 
+
+    <script>
+        instance = new dtsel.DTS('input[name="dateTimePicker"]', {
+            direction: 'BOTTOM',
+            dateFormat: "dd / mm / yyyy"
+        });
+
+    </script>
 </body>
 
 </html>
