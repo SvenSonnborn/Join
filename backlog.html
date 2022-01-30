@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--USE MATERIAL ICONS-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
     <title>Join | BACKLOG </title>
 
     <!--CSS FILES-->
@@ -14,12 +18,12 @@
 
 
     <!--JS FILES-->
-    <link rel="stylesheet" href="js/main.js">
-    <link rel="stylesheet" href="js/backlog.js">
+    <script src="./js/main.js"></script>
+    <script src="./js/backlog.js"></script>
 
 </head>
 
-<body>
+<body onload="initBacklog()">
 
     <div class="flex" style="width: 100vw;">
 
@@ -36,34 +40,37 @@
                 <span>All tasks in the pipeline</span>
             </header>
 
-            <div class="columnNames">
+            <!-- <div class="columnNames">
                 <H3 class="columnAssignedTo">ASSIGNED TO</H3>
-                <H3 class="columnCategory">CATEGORY</H3>
-                <H3 class="columnDdetails"> DETAILS</H3>
-            </div>
+                <H3 class="columnDue">TIMELINE</H3>
+                <H3 class="columnDescription"> TASK</H3>
+            </div> -->
+
+
 
             <div id="allTasks">
 
-                <div id="taskContainer">
+                <!-- Headline of Table -->
 
-
+                <div class="taskContainer tableHead">
                     <div class="assignedTo d-flex-center">
-
-                            <img id="userImg" src="img/example-user.jpg" alt="user">
-    
-    
-                        <div class = "userData">
-                            <span id="userName">Vilia Zeisig</span><br>
-                            <span id="userEmail">vzeisig@googlemail.com</span>
+                        <div class="userData">
+                            <H3>ASSIGNED TO</H3>
                         </div>
                     </div>
 
-                    <div class="taskCategory d-flex-center">Marketing</div>
-                    <div class="taskDetails d-flex-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor facere
-                        consequuntur nam voluptates enim, </div>
+                    <div class="taskTimeline d-flex-center">
+                        <H3>TIMELINE</H3>
+                    </div>
+
+                    <div class="taskDescription d-flex-center">
+                        <H3> TASK</H3>
+                    </div>
+
                 </div>
 
 
+                <!-- JS render all single Tasks here -->
             </div>
         </div>
 
