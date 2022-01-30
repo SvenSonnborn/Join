@@ -47,8 +47,8 @@ let tasks = [{
     "Due Date": "02.07.22",
     "Urgency": "Low",
     "Assigned": "Hans",
-    "Status": "backlog", // >> Locaction of current task"backlog", "ToDo", "inProgress", "testing", "done"  
-    "UserImage": "img/profile3.png"
+    "UserImage": "img/profile3.png",
+    "Status": "backlog" // >> Locaction of current task"backlog", "ToDo", "inProgress", "testing", "done"  
 
     //      "placed":"backlog"
 },
@@ -59,8 +59,8 @@ let tasks = [{
     "Due Date": "12.10.22",
     "Urgency": "Medium",
     "Assigned": "Vilia",
-    "Status": "backlog", // >> Locaction of current task"backlog", "ToDo", "inProgress", "testing", "done"  
     "UserImage": "img/profile1.png",
+    "Status": "backlog" // >> Locaction of current task"backlog", "ToDo", "inProgress", "testing", "done"  
 
     //      "placed":"backlog"
 }
