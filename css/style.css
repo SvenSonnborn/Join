@@ -1,8 +1,9 @@
-* {
+body{
     padding: 0;
     margin: 0;
-    font-family: ** pt sans family einfügen **;
     box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
 
 }
 .flex{
@@ -16,9 +17,17 @@
 .maincolorbackground{
     background-color: blue;
 }
-.button{
-
-}
 .bgGray{
     background-color: rgba(211, 211, 211, 0.397);
+}
+.Complete{
+    height: 90%;
+    width: 90%;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    border: black solid 2px;
+    border-radius: 2rem;
+
+
 }
