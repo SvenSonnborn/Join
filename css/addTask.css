@@ -1,0 +1,56 @@
+.doublebox{
+   display: flex;
+   justify-content: space-between;
+   padding-left: 3rem;
+   padding-right: 3rem;
+   padding-top: 2rem;
+}
+.singlebox{
+   width: 40%;
+   display: flex;
+   flex-direction: column;
+}
+
+.singlebox img{
+   width: 3rem;
+   height: 3rem;
+}
+
+.rightbox{
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   width: 100%;
+   margin-left: 2rem;
+   margin-right: 2rem;
+   position: relative;
+}
+.selectionBox{
+   height: 70%;
+   width: 100%;
+   position: absolute;
+   margin-top: 8rem;
+   left: 0rem;
+}
+.inputfield{
+   height: 2.5rem;
+   width: 100%;
+}
+.datepicker{
+   position: relative;
+}
+.pointer:hover{
+   cursor: pointer;
+}
+.Calender{
+   width: 2.6rem !important;
+   height: 2.6rem !important;
+   position: absolute;
+   right: -0.2rem;
+   bottom: 0.15rem;
+}
+.headline{
+   position: absolute;
+   left: 0px;
+   top: 1rem;
+}
