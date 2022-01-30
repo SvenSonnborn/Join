@@ -32,7 +32,7 @@ function includeHTML() {
 let tasks = [{
         "Titel": "Mangement",
         "Category": "Doe",
-        "Description": "Test",
+        "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
         "Due Date": "02.70.22",
         "Urgency": "High",
         "Assigned": "Peter",
