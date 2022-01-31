@@ -16,16 +16,16 @@ function render() {
                 `<div class="taskContainer-wrapper d-flex-center">
             <div class="taskContainer" id="task-${i}">
                     <div class="assignedTo d-flex-center" >
-                        <img id="userImg" src="${currentTask.UserImage}" alt="user Image">
+                        <img id="userImg" src="${currentTask.Assigned.UserImage}" alt="user Image">
                         <div class="userData">
-                            <span id="userName">${currentTask.Assigned}</span><br>
-                            <span id="userEmail">${currentTask.Email}</span>
+                            <span id="userName">${currentTask.Assigned.Name}</span><br>
+                            <span id="userEmail">${currentTask.Assigned.Email}</span>
                         </div>
                     </div>
 
                     <div class="taskTimeline d-flex-center"> 
                         <span id="dueDate">
-                        <span class="material-icons">event</span>${currentTask["Due Date"]}</span>
+                        <span class="material-icons">event</span>${currentTask["DueDate"]}</span>
                     </div>
                     <div class="taskDescription d-flex-center">${currentTask.Description}</div>
             </div>
