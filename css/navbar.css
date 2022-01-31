@@ -3,7 +3,7 @@
     border-radius: 100%;
 }
 
-.content img {
+.navbar img {
     height: 9rem;
     width: 9rem;
 }
@@ -12,7 +12,7 @@
     width: 6rem !important;
 }
 
-.content {
+.navbar {
     width: 15vw;
     display: flex;
     flex-direction: column;
