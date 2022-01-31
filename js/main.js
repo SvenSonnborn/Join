@@ -36,6 +36,7 @@ let tasks = [{
     "Due Date": "02.03.22",
     "Urgency": "High",
     "Assigned": "Peter",
+    "Email": "peter@gmail.com",
     "UserImage": "img/profile4.png",
     "Status": "backlog" // >> Locaction of current task"backlog", "ToDo", "inProgress", "testing", "done"  
     //        "placed":"backlog"  >> we can change that into "status" (see above)
@@ -47,6 +48,7 @@ let tasks = [{
     "Due Date": "02.07.22",
     "Urgency": "Low",
     "Assigned": "Hans",
+    "Email": "hans@gmx.de",
     "UserImage": "img/profile3.png",
     "Status": "backlog" // >> Locaction of current task"backlog", "ToDo", "inProgress", "testing", "done"  
 
@@ -59,6 +61,7 @@ let tasks = [{
     "Due Date": "12.10.22",
     "Urgency": "Medium",
     "Assigned": "Vilia",
+    "Email": "vilia@web.de",
     "UserImage": "img/profile1.png",
     "Status": "backlog" // >> Locaction of current task"backlog", "ToDo", "inProgress", "testing", "done"  
 
