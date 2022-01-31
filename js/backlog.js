@@ -1,15 +1,15 @@
-function initBacklog(){
+function initBacklog() {
     render();
-
 }
 
-function render(){
+function render() {
     let mainContainer = document.getElementById('allTasks')
     // mainContainer.innerHTML = '';
 
     for (let i = 0; i < tasks.length; i++) {
-        mainContainer.innerHTML += 
-        `<div class="taskContainer-wrapper d-flex-center">
+        if (tasks[i].Status === "backlog") {
+            mainContainer.innerHTML +=
+                `<div class="taskContainer-wrapper d-flex-center">
             <div class="taskContainer" id="task-${i}">
                     <div class="assignedTo d-flex-center" >
                         <img id="userImg" src="${tasks[i].UserImage}" alt="user Image">
@@ -35,30 +35,33 @@ function render(){
                 </span></button>
             </div>
 
-        </div>
-`
-addBorderColors(i);    
+        </div>`;
+            addBorderColors(i);
+        }
     }
 }
 
 
 function addBorderColors(i) {
-    if (tasks[i].Category == 'Marketing'){
-        let taskContainer = document.getElementById(`task-${i}`)
-        taskContainer.classList.add('border-green')  
+    if (tasks[i].Category == 'Marketing') {
+        let taskContainer = document.getElementById(`task-${i}`);
+        taskContainer.classList.add('border-green');
     }
 
-    if (tasks[i].Category == 'Doe'){
-        let taskContainer = document.getElementById(`task-${i}`)
-        taskContainer.classList.add('border-lila')  
+    if (tasks[i].Category == 'Doe') {
+        let taskContainer = document.getElementById(`task-${i}`);
+        taskContainer.classList.add('border-lila');
     }
 }
 
-function addTaskToBoard(i){
-console.log('addToBoard')
+function addTaskToBoard(i) {
+    let currentTask =tasks[i];
+    currentTask.Status = "toDo";
+    console.log('addTask', i, currentTask);
 }
 
-function editTask(i){
-    console.log('editTask')
 
+function editTask(i) {
+    let currentTask =tasks[i];
+    console.log('editTask', i,currentTask);
 }
