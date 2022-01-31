@@ -30,7 +30,7 @@ function includeHTML() {
 }
 
 let tasks = [{
-    "Titel": "Mangement",
+    "Title": "Mangement",
     "Category": "Doe",
     "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     "DueDate": "02.03.22",
@@ -41,7 +41,7 @@ let tasks = [{
     //        "placed":"backlog"  >> we can change that into "status" (see above)
 },
 {
-    "Titel": "Social Media",
+    "Title": "Social Media",
     "Category": "Marketing",
     "Description": "This is a short task description for Task 2 in Project Management",
     "DueDate": "02.07.22",
@@ -53,7 +53,7 @@ let tasks = [{
     //      "placed":"backlog"
 },
 {
-    "Titel": "Mangement",
+    "Title": "Mangement",
     "Category": "Doe",
     "Description": "Run a test for your new developed software.",
     "DueDate": "12.10.22",
