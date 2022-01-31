@@ -1,6 +1,7 @@
 let backlogTasks = [];
 
 function initBacklog() {
+    includeHTML();
     render();
 }
 
@@ -8,6 +9,7 @@ function render() {
     let mainContainer = document.getElementById('allTasks')
     backlogTasks = tasks.filter((task) => { return task.Status === "backlog" })
     mainContainer.innerHTML = '';
+
 
     if (backlogTasks.length > 0) {
         for (let i = 0; i < backlogTasks.length; i++) {
