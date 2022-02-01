@@ -15,7 +15,7 @@ function render() {
         for (let i = 0; i < backlogTasks.length; i++) {
             let currentTask = backlogTasks[i];
             mainContainer.innerHTML +=
-                `<div id="taskContainer-${i}" class="taskContainer-wrapper d-flex-center">
+                `<div id="taskContainer-${i}" class="taskContainer-wrapper d-flex-center box-shadow">
             <div class="taskContainer" id="task-${i}">
                     <div class="assignedTo d-flex-center" >
                         <img id="userImg" src="${currentTask.Assigned.UserImage}" alt="user Image">
@@ -93,7 +93,6 @@ function deleteTask(i){
 }
 
 function editTask(i) { 
-
     console.log('edit', i)
 
 let titleContainer = document.getElementById(`titleContainer-${i}`);
