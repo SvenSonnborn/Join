@@ -75,27 +75,10 @@ function addTaskToBoard(i) {
 
     taskToAdd.Status = "toDo";
         render();
-        console.log('addTask', taskToAdd);
     }
     
     
-//     function editTask(currentTask) {
-//         console.log('editTask', currentTask);
-//         // render();
-//     }
-
-// function addTaskToBoard(currentTask) {
-//     console.log('currentTask', currentTask);
-
-//     // currentTask.Status = "toDo";
-//     console.log('addTask', currentTask);
-//     // render();
-// }
-
-
-// function editTask(currentTask) {
-//     console.log('currentTask', currentTask);
-
-//     console.log('editTask', currentTask);
-//     // render();
-// }
+    function editTask(i) {
+        console.log('editTask', i);
+        render();
+    }
