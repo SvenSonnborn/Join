@@ -36,7 +36,7 @@
         <div class="section">
 
             <header>
-                <H1>Backlog</H1>
+                <H2>Backlog</H2>
                 <span>All tasks in the pipeline</span>
             </header>
 
@@ -48,6 +48,8 @@
 
 
             <div class="allTasks">
+
+                <!-- Header Section fix-->
                 <div class="taskContainer tableHead">
                     <div class="assignedTo d-flex-center">
                         <div class="userData">
@@ -62,15 +64,18 @@
                     <div class="taskDescription d-flex-center">
                         <H3> TASK</H3>
                     </div>
-
                 </div>
 
             </div>
+
+            <!-- Note if Task section is empty -->
+
+            <div class="msgEmptyBacklog taskContainer d-none" id="msgEmptyBacklog">
+                Boring times ... No tasks in the Backlog.
+            </div>
+
+            <!-- Task section -->
             <div id="allTasks" class="allTasks">
-
-                <!-- Headline of Table -->
-
-
 
                 <!-- JS render all single Tasks here -->
             </div>

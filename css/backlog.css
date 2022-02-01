@@ -1,3 +1,6 @@
+.d-none{
+    display: none!important;
+}
 .section {
     width: 80%;
     display: flex;
@@ -36,9 +39,7 @@ header span {
     background-color: unset !important;
 }
 
-.tableHead H3 {
-    color: blue
-}
+
 
 /* Main Task Container with all Single Tasks */
 .allTasks {
@@ -50,8 +51,6 @@ header span {
 }
 
 /* Single Task Container */
-
-
 
 .taskContainer {
     width: 100%;
@@ -78,13 +77,11 @@ header span {
 .assignedTo #userEmail {
     color: blue;
     flex-wrap: wrap;
-
 }
 
 .taskTimeline {
     /* width: 25%; */
     margin-right: 50px;
-
 }
 
 .taskTimeline span {
@@ -133,5 +130,11 @@ header span {
 
 #btn-edit {
     border-radius: 0px 0px 8px 0px;
+}
 
+.msgEmptyBacklog{
+border-radius: 8px;
+justify-content: center;
+padding: 8px 0px;
+margin-top: 16px;
 }

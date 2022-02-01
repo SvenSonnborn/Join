@@ -56,7 +56,7 @@ let tasks = [
         Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
         DueDate: "02 / 03 / 22",
         Urgency: "Mid",
-        Assigned: user[0],
+        Assigned: user[1],
         Status: "backlog",  // This is where the task is currently loacted: "backlog", "toDo", "inProgress" etc. 
     },
     {
@@ -65,7 +65,7 @@ let tasks = [
         Description: "This is a short task description for Task 2 in Project Management",
         DueDate: "02 / 03 / 22",
         Urgency: "Low",
-        Assigned: user[1],
+        Assigned: user[2],
         Status: "backlog",
     },
     {
@@ -92,7 +92,7 @@ let tasks = [
         Description: "Run a test for your new developed software.",
         DueDate: "10 / 03 / 22",
         Urgency: "High",
-        Assigned: user[2],
+        Assigned: user[0],
         Status: "backlog", 
     },
     {
@@ -101,7 +101,7 @@ let tasks = [
         Description: "Run a test for your new developed software.",
         DueDate: "02 / 07 / 22",
         Urgency: "High",
-        Assigned: user[2],
+        Assigned: user[1],
         Status: "backlog", 
     },
     {
@@ -119,7 +119,7 @@ let tasks = [
         Description: "Run a test for your new developed software.",
         DueDate: "02 / 03 / 22",
         Urgency: "High",
-        Assigned: user[2],
+        Assigned: user[0],
         Status: "backlog", 
     }
 ];

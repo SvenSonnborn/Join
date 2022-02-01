@@ -40,18 +40,17 @@ function render() {
                 mode_edit_outline
                 </span></button>
             </div>
-
         </div>`;
-            addBorderColors(currentTask,i);
+            addBorderColors(currentTask, i);
         }
     }
     else {
-        alert('keie Tasks vorhanden');
+        showNoteEmptyBacklog();
     }
 }
 
 
-function addBorderColors(currentTask,i) {
+function addBorderColors(currentTask, i) {
     if (currentTask.Category == 'Marketing') {
         let taskContainer = document.getElementById(`task-${i}`);
         taskContainer.classList.add('color-marketing');
@@ -74,11 +73,17 @@ function addTaskToBoard(i) {
     let taskToAdd = backlogTasks[i];
 
     taskToAdd.Status = "toDo";
-        render();
-    }
-    
-    
-    function editTask(i) {
-        console.log('editTask', i);
-        render();
-    }
+    render();
+}
+
+
+function editTask(i) {
+    console.log('editTask', i);
+    render();
+}
+
+
+function showNoteEmptyBacklog() {
+    let container = document.getElementById('msgEmptyBacklog')
+    container.classList.remove('d-none')
+}
