@@ -54,12 +54,19 @@ function render() {
 function addBorderColors(currentTask,i) {
     if (currentTask.Category == 'Marketing') {
         let taskContainer = document.getElementById(`task-${i}`);
-        taskContainer.classList.add('border-green');
+        taskContainer.classList.add('color-marketing');
     }
-
-    if (currentTask.Category == 'Doe') {
+    if (currentTask.Category == 'Sales') {
         let taskContainer = document.getElementById(`task-${i}`);
-        taskContainer.classList.add('border-lila');
+        taskContainer.classList.add('color-sales');
+    }
+    if (currentTask.Category == 'Production') {
+        let taskContainer = document.getElementById(`task-${i}`);
+        taskContainer.classList.add('color-production');
+    }
+    if (currentTask.Category == 'Designer') {
+        let taskContainer = document.getElementById(`task-${i}`);
+        taskContainer.classList.add('color-designer');
     }
 }
 

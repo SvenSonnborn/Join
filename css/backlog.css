@@ -63,27 +63,6 @@ header span {
     border-radius: 8px 0px 0px 8px;
 }
 
-/* category:  */
-.border-green {
-    border-left: 6px solid rgb(1, 184, 74);
-}
-
-/* category:  */
-.border-lila {
-    border-left: 6px solid rgb(108, 3, 213);
-}
-
-/* category:  */
-.border-blue {
-    border-left: 6px solid rgb(12, 149, 223);
-}
-
-/* category:  */
-.border-yellow {
-    border-left: 6px solid rgb(245, 197, 8);
-}
-
-
 .assignedTo {
     width: 30%;
     min-width: 200px;

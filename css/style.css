@@ -34,9 +34,24 @@ body{
     left: 5%;
     border: black solid 2px;
     border-radius: 2rem;
-
-
 }
 h2{
     font-size: 2rem;
+}
+
+.color-sales{
+    border-left: 9px solid rgb(159, 192, 98);
+
+}
+
+.color-marketing{
+    border-left: 9px solid rgb(173, 70, 177);
+}
+
+.color-production{
+    border-left: 9px solid rgb(4, 179, 179);
+}
+
+.color-designer{
+    border-left: 9px solid rgb(228, 165, 17);
 }
