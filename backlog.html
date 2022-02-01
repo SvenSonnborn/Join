@@ -50,20 +50,28 @@
             <div class="allTasks">
 
                 <!-- Header Section fix-->
-                <div class="taskContainer tableHead">
-                    <div class="assignedTo d-flex-center">
-                        <div class="userData">
-                            <H3>ASSIGNED TO</H3>
+
+                <div class="taskContainer-wrapper d-flex-center">
+
+                    <div class="taskContainer">
+
+                        <div class="assignedTo d-flex-center">
+                            <h3>ASSIGNED TO</h3>
+                        </div>
+
+                        <div class="taskTimeline d-flex-center">
+                            <h3>TIMELINE</h3>
+                        </div>
+
+                        <div class="taskDescription d-flex-center">
+                            <h3>TASK</h3>
                         </div>
                     </div>
 
-                    <div class="taskTimeline d-flex-center">
-                        <H3>TIMELINE</H3>
+                    <!-- has width of button-section  -->
+                    <div class="placeholderDIV d-flex-center">
                     </div>
 
-                    <div class="taskDescription d-flex-center">
-                        <H3> TASK</H3>
-                    </div>
                 </div>
 
             </div>
@@ -74,11 +82,17 @@
                 Boring times ... No tasks in the Backlog.
             </div>
 
+
+            <div class="editTask">
+<div></div>
+            </div>
+
             <!-- Task section -->
             <div id="allTasks" class="allTasks">
 
                 <!-- JS render all single Tasks here -->
             </div>
+
         </div>
 
     </div>

@@ -26,8 +26,14 @@ function render() {
                     </div>
 
                     <div class="taskTimeline d-flex-center"> 
-                        <span id="dueDate">
-                        <span class="material-icons">event</span>${currentTask["DueDate"]}</span>
+                        <span id="dueDate" >
+                            <div class="material-icons">event</div>${currentTask.DueDate}
+                        </span>
+
+                        <span id="urgency">
+                            <div id="dueDate" class="material-icons">av_timer</div>${currentTask.Urgency}
+                        </span>
+                        
                     </div>
                     <div class="taskDescription d-flex-center">${currentTask.Description}</div>
             </div>
@@ -71,7 +77,6 @@ function addBorderColors(currentTask, i) {
 
 function addTaskToBoard(i) {
     let taskToAdd = backlogTasks[i];
-
     taskToAdd.Status = "toDo";
     render();
 }
