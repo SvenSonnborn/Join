@@ -34,9 +34,9 @@ function includeHTML() {
 }
 let user = [
     {
-        Name: "Peter Wurst",
+        Name: "Peter Cook",
         Email: "peter@gmail.com",
-        UserImage: "img/profile4.png",
+        UserImage: "img/profile6.png",
     },
     {
         Name: "Hans Makrone",
@@ -44,20 +44,20 @@ let user = [
         UserImage: "img/profile3.png",
     },
     {
-        Name: "Vilia Terminal",
-        Email: "vilia@web.de",
-        UserImage: "img/profile1.png",
+        Name: "Mila Mantau",
+        Email: "mila@web.de",
+        UserImage: "img/profile2.png",
     },
 ];
 let tasks = [
     {
         Title: "Titel Test 1",
-        Category: "Sales",
+        Category: "Sales",  // Options: Sales, Production, Marketing, Designer
         Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
         DueDate: "02 / 03 / 22",
         Urgency: "Mid",
         Assigned: user[0],
-        Status: "backlog", // >> Locaction of current task"backlog", "ToDo", "inProgress", "testing", "done"
+        Status: "backlog",  // This is where the task is currently loacted: "backlog", "toDo", "inProgress" etc. 
     },
     {
         Title: "Titel Test 2",
@@ -66,33 +66,60 @@ let tasks = [
         DueDate: "02 / 03 / 22",
         Urgency: "Low",
         Assigned: user[1],
-        Status: "backlog", // >> Locaction of current task"backlog", "ToDo", "inProgress", "testing", "done"
+        Status: "backlog",
     },
     {
         Title: "Titel Test 3",
-        Category: "Design",
+        Category: "Designer",
         Description: "Run a test for your new developed software.",
         DueDate: "02 / 03 / 22",
         Urgency: "High",
         Assigned: user[2],
-        Status: "backlog", // >> Locaction of current task"backlog", "ToDo", "inProgress", "testing", "done"
+        Status: "toDo", 
     },
     {
-        Title: "Titel Test 4",
+        Title: "Titel Test 5",
         Category: "Marketing",
         Description: "This is a short task description for Task 2 in Project Management",
         DueDate: "02 / 03 / 22",
         Urgency: "Low",
         Assigned: user[1],
-        Status: "backlog", // >> Locaction of current task"backlog", "ToDo", "inProgress", "testing", "done"
+        Status: "toDo", 
     },
     {
-        Title: "Titel Test 5",
+        Title: "Titel Test 6",
+        Category: "Marketing",
+        Description: "Run a test for your new developed software.",
+        DueDate: "10 / 03 / 22",
+        Urgency: "High",
+        Assigned: user[2],
+        Status: "backlog", 
+    },
+    {
+        Title: "Titel Test 3",
+        Category: "Designer",
+        Description: "Run a test for your new developed software.",
+        DueDate: "02 / 07 / 22",
+        Urgency: "High",
+        Assigned: user[2],
+        Status: "backlog", 
+    },
+    {
+        Title: "Titel Test 7",
+        Category: "Designer",
+        Description: "This is a short task description for Task 2 in Project Management",
+        DueDate: "02 / 03 / 23",
+        Urgency: "High",
+        Assigned: user[1],
+        Status: "toDo", 
+    },
+    {
+        Title: "Titel Test 8",
         Category: "Sales",
         Description: "Run a test for your new developed software.",
         DueDate: "02 / 03 / 22",
         Urgency: "High",
         Assigned: user[2],
-        Status: "backlog", // >> Locaction of current task"backlog", "ToDo", "inProgress", "testing", "done"
+        Status: "backlog", 
     }
 ];
