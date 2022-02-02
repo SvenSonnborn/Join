@@ -3,7 +3,18 @@ let backlogTasks = [];
 function initBacklog() {
     includeHTML();
     render();
+
 }
+function showDatapicker(i) {
+    instance = new dtsel.DTS(`input[name="dateTimePicker${i}"]`, {
+        showTime: true,
+        showDate: false,
+        direction: 'BOTTOM',
+        dateFormat: "dd / mm / yyyy",
+        defaultView: "MONTHS"
+    });
+}
+
 
 function render() {
     let mainContainer = document.getElementById('allTasks')
@@ -15,7 +26,7 @@ function render() {
         for (let i = 0; i < backlogTasks.length; i++) {
             let currentTask = backlogTasks[i];
             mainContainer.innerHTML +=
-                `<div id="taskContainer-${i}" class="taskContainer-wrapper d-flex-center box-shadow">
+                `<div id="taskContainer-c" class="taskContainer-wrapper d-flex-center box-shadow">
             <div class="taskContainer" id="task-${i}">
                     <div class="assignedTo d-flex-center" >
                         <img id="userImg" src="${currentTask.Assigned.UserImage}" alt="user Image">
@@ -26,15 +37,16 @@ function render() {
                     </div>
 
                     <div class="taskTimeline d-flex-center"> 
-                        <span id="dueDate" >
-                            <div class="material-icons">event</div>${currentTask.DueDate}
+                        <span id="dueDate-${i}" onclick="showDatapicker(${i})">
+                            <div class="material-icons">event</div><input name="dateTimePicker${i}" value="${currentTask.DueDate}"/>
                         </span>
+                        
 
                         <span id="urgency">
                             <div id="dueDate" class="material-icons">av_timer</div>${currentTask.Urgency}
                         </span>
                     </div>
-                    <div class="taskDescription d-flex-center">
+                    <div class="taskDescription ">
                         <div id="titleContainer-${i}" class="titleTask">${currentTask.Title}</div>
                         <div id="textContainer-${i}">${currentTask.Description}</div>
                     </div>
@@ -56,7 +68,7 @@ function render() {
         }
     }
     else {
-        showNoteEmptyBacklog();
+        showMsgEmptyBacklog();
     }
 }
 
@@ -86,34 +98,39 @@ function addTaskToBoard(i) {
     render();
 }
 
-function deleteTask(i){
+function deleteTask(i) {
     let taskToDelete = backlogTasks[i];
     taskToDelete.Status = "archived";
     render();
 }
 
-function editTask(i) { 
+function editTask(i) {
     console.log('edit', i)
 
-let titleContainer = document.getElementById(`titleContainer-${i}`);
-titleContainer.setAttribute("contenteditable","true");
-titleContainer.focus();
-let textContainer = document.getElementById(`textContainer-${i}`);
-textContainer.setAttribute("contenteditable","true");
+    let titleContainer = document.getElementById(`titleContainer-${i}`);
+    titleContainer.setAttribute("contenteditable", "true");
+    titleContainer.focus();
+    let textContainer = document.getElementById(`textContainer-${i}`);
+    textContainer.setAttribute("contenteditable", "true");
 
 
 }
 
-function makeCalEditable(){
+function makeCalEditable() {
     console.log('changeDate')
 
 }
 
-function changeUser(){
+function changeUser() {
     console.log('changeUser')
 }
 
-function showNoteEmptyBacklog() {
+function showMsgEmptyBacklog() {
     let container = document.getElementById('msgEmptyBacklog')
     container.classList.remove('d-none')
+}
+
+
+function saveAfterEdit(){
+    console.log('save after edit');
 }
