@@ -18,6 +18,11 @@
     appearance: none;  /* hide the arrow for dropdown per default */
  }
 
+ .deactivateClick{
+    pointer-events: none;
+    cursor: initial;
+ }
+
 
 .d-none {
     display: none !important;

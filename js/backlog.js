@@ -3,7 +3,6 @@ let backlogTasks = [];
 function initBacklog() {
     includeHTML();
     render();
-
 }
 
 function render() {
@@ -27,7 +26,7 @@ function render() {
                     </div>
 
                     <div class="taskTimeline d-flex-center"> 
-                        <span id="dueDate-${i}" onclick="changeDueDate(${i})">
+                        <span id="dueDate-${i}" class="deactivateClick" onclick="changeDueDate(${i})">
                             <div class="material-icons">event</div><input name="input${i}" placeholder="${currentTask.DueDate}"/>
                         </span>
                         
@@ -35,7 +34,7 @@ function render() {
                         <span>
                             <div class="material-icons">av_timer</div>
                             
-                            <select id="urgency-${i}" name="Urgency" class="urgencySelector">
+                            <select id="urgency-${i}" name="Urgency" class="urgencySelector deactivateClick">
                                 <option value="none" selected disabled >${currentTask.Urgency}</option>
                                 <option value="High">High</option>
                                 <option value="Mid">Mid</option>
@@ -118,6 +117,9 @@ function editTask(i) {
     textContainer.setAttribute("contenteditable", "true");
     let urgencySelector = document.getElementById(`urgency-${i}`);
     urgencySelector.style.appearance = "auto"; //show arrow for dropdown
+    urgencySelector.classList.remove('deactivateClick');
+    let dueDateInput = document.getElementById(`dueDate-${i}`);
+    dueDateInput.classList.remove('deactivateClick');
 
     btnChangeBgr(i);
     showSaveBtn(i);
@@ -145,8 +147,9 @@ function showMsgEmptyBacklog() {
 }
 
 
-function saveAfterEdit() {
-    console.log('save after edit');
+function saveTask(i) {
+showEditBtn(i);
+removeEditable(i);
 }
 
 // when edit-btn is clicked
@@ -160,5 +163,29 @@ function showSaveBtn(i) {
     editBtn.classList.add('d-none');
 
     let saveBtn = document.getElementById(`btn-save-${i}`)
-    saveBtn.classList.remove('d-none')
+    saveBtn.classList.remove('d-none');
+}
+
+function showEditBtn(i){
+    let editBtn = document.getElementById(`btn-edit-${i}`);
+    editBtn.classList.remove('d-none');
+
+    let saveBtn = document.getElementById(`btn-save-${i}`)
+    saveBtn.classList.add('d-none');
+}
+
+function removeEditable(i){
+    let titleContainer = document.getElementById(`titleContainer-${i}`);
+    titleContainer.setAttribute("contenteditable", "false");
+
+    let textContainer = document.getElementById(`textContainer-${i}`);
+    textContainer.setAttribute("contenteditable", "false");
+
+    let urgencySelector = document.getElementById(`urgency-${i}`);
+    urgencySelector.style.appearance = "none"; //show arrow for dropdown
+    urgencySelector.classList.add('deactivateClick');
+
+    let dueDateInput = document.getElementById(`dueDate-${i}`);
+    dueDateInput.classList.add('deactivateClick');
+
 }
