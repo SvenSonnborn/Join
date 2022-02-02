@@ -15,8 +15,8 @@ function render() {
         for (let i = 0; i < backlogTasks.length; i++) {
             let currentTask = backlogTasks[i];
             mainContainer.innerHTML +=
-                `<div id="taskContainer-c" class="taskContainer-wrapper d-flex-center box-shadow">
-            <div class="taskContainer" id="task-${i}">
+                `<div class="taskContainer-wrapper d-flex-center box-shadow">
+            <div class="taskContainer containerHeight" id="task-${i}">
                     <div class="assignedTo d-flex-center" >
                         <img id="userImg" src="${currentTask.Assigned.UserImage}" alt="user Image">
                         <div class="userData">
@@ -45,7 +45,7 @@ function render() {
                     </div>
                     <div class="taskDescription ">
                         <div id="titleContainer-${i}" class="titleTask">${currentTask.Title}</div>
-                        <div id="textContainer-${i}">${currentTask.Description}</div>
+                        <div id="textContainer-${i}" class="textTask">${currentTask.Description}</div>
                     </div>
             </div>
 
@@ -58,7 +58,7 @@ function render() {
                 delete
                 </span></button>
 
-                <button id="btn-edit-${i}" class="btn-edit" onclick="editTask(${i})"><span class="material-icons">
+                <button id="btn-edit-${i}" class="btn-edit" onclick="startEditMode(${i})"><span class="material-icons">
                 mode_edit_outline
                 </span></button>
 
@@ -108,7 +108,7 @@ function deleteTask(i) {
     render();
 }
 
-function editTask(i) {
+function startEditMode(i) {
 
     let titleContainer = document.getElementById(`titleContainer-${i}`);
     titleContainer.setAttribute("contenteditable", "true");
@@ -149,7 +149,7 @@ function showMsgEmptyBacklog() {
 
 function saveTask(i) {
 showEditBtn(i);
-removeEditable(i);
+removeEditMode(i);
 }
 
 // when edit-btn is clicked
@@ -174,7 +174,7 @@ function showEditBtn(i){
     saveBtn.classList.add('d-none');
 }
 
-function removeEditable(i){
+function removeEditMode(i){
     let titleContainer = document.getElementById(`titleContainer-${i}`);
     titleContainer.setAttribute("contenteditable", "false");
 

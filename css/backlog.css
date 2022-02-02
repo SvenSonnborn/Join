@@ -72,9 +72,7 @@ header span {
     line-height: 2em;
 }
 
-.tableHead {
-    background-color: unset !important;
-}
+
 
 /* Main Task Container with all Single Tasks */
 .allTasks {
@@ -92,15 +90,24 @@ header span {
     width: 100%;
     display: flex;
     /* flexbox subcontainers parts: 3 - 2 - 5 */
-    gap: 20px;
+    gap: 32px;
     padding: 8px;
     background-color: rgba(211, 211, 211, 0.281);
     border-radius: 8px 0px 0px 8px;
 }
 
+.containerHeight{
+    min-height: 100px;
+    max-height: 136px;
+}
+
+.tableHead {
+    background-color: unset !important;
+}
+
 .assignedTo {
-    flex: 3;
-    /* min-width: 200px; */
+    min-width: 275px;
+    max-width: 275px;
 }
 
 .assignedTo img {
@@ -113,16 +120,17 @@ header span {
 .assignedTo #userEmail {
     color: blue;
     flex-wrap: wrap;
+    overflow-wrap: anywhere;
 }
 
 .taskTimeline {
-    flex: 2.5;
+    min-width: 100px;
+    max-width: 100px;
     margin-right: 50px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 0.4em;
-
 }
 
 .taskTimeline span {
@@ -164,14 +172,21 @@ header span {
 
 
 .taskDescription {
-    flex: 5;
-    flex-wrap: wrap;
+    flex: 6;
     display: flex;
-    flex-direction: column;
+    flex-direction: column!important;
     align-items: flex-start;
+    overflow-x: hidden;
+    max-width: 100%;
 }
+
 .taskDescription .titleTask{
     font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.taskDescription .textTask{
+    overflow-wrap: anywhere;
 }
 
 .placeholderDIV {
