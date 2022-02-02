@@ -127,6 +127,22 @@ header span {
     font-size: 1em;
     line-height: unset;
     color: black;
+    cursor: default;
+}
+
+.taskTimeline input{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    font-family: 'PT Sans', sans-serif;
+    font-style: unset;
+    font-weight: normal;
+    width: 100%;
+}
+
+.taskTimeline input::placeholder{
+    color: black;
 }
 
 

@@ -5,15 +5,21 @@ function initBacklog() {
     render();
 
 }
+
+
 function showDatapicker(i) {
-    instance = new dtsel.DTS(`input[name="dateTimePicker${i}"]`, {
-        showTime: true,
-        showDate: false,
+    let inputfield = document.getElementById(`dueDate-${i}`)
+    inputfield.removeAttribute("onclick");
+    instance = new dtsel.DTS(`input[name="input${i}"]`, {
         direction: 'BOTTOM',
-        dateFormat: "dd / mm / yyyy",
-        defaultView: "MONTHS"
+        dateFormat: "dd / mm / yyyy"
     });
+    if(inputfield.value){
+        inputfield.setAttribute("onclick","showDatapicker(${i})")
+    }
 }
+
+
 
 
 function render() {
@@ -38,7 +44,7 @@ function render() {
 
                     <div class="taskTimeline d-flex-center"> 
                         <span id="dueDate-${i}" onclick="showDatapicker(${i})">
-                            <div class="material-icons">event</div><input name="dateTimePicker${i}" value="${currentTask.DueDate}"/>
+                            <div class="material-icons">event</div><input name="input${i}" placeholder="${currentTask.DueDate}"/>
                         </span>
                         
 
