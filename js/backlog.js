@@ -6,22 +6,6 @@ function initBacklog() {
 
 }
 
-
-function showDatapicker(i) {
-    let inputfield = document.getElementById(`dueDate-${i}`)
-    inputfield.removeAttribute("onclick");
-    instance = new dtsel.DTS(`input[name="input${i}"]`, {
-        direction: 'BOTTOM',
-        dateFormat: "dd / mm / yyyy"
-    });
-    if(inputfield.value){
-        inputfield.setAttribute("onclick","showDatapicker(${i})")
-    }
-}
-
-
-
-
 function render() {
     let mainContainer = document.getElementById('allTasks')
     backlogTasks = tasks.filter((task) => { return task.Status === "backlog" })
@@ -43,13 +27,21 @@ function render() {
                     </div>
 
                     <div class="taskTimeline d-flex-center"> 
-                        <span id="dueDate-${i}" onclick="showDatapicker(${i})">
+                        <span id="dueDate-${i}" onclick="changeDueDate(${i})">
                             <div class="material-icons">event</div><input name="input${i}" placeholder="${currentTask.DueDate}"/>
                         </span>
                         
 
-                        <span id="urgency">
-                            <div id="dueDate" class="material-icons">av_timer</div>${currentTask.Urgency}
+                        <span>
+                            <div class="material-icons">av_timer</div>
+                            
+                            <select id="urgency-${i}" name="Urgency" class="urgencySelector">
+                                <option value="none" selected disabled >${currentTask.Urgency}</option>
+                                <option value="High">High</option>
+                                <option value="Mid">Mid</option>
+                                <option value="Low">Low</option>
+                            </select>
+                            
                         </span>
                     </div>
                     <div class="taskDescription ">
@@ -62,12 +54,19 @@ function render() {
                 <button id="btn-addBoard" onclick="addTaskToBoard(${i})"><span class="material-icons">
                 add
                 </span></button>
+
                 <button id="btn-delete" onclick="deleteTask(${i})"><span class="material-icons">
                 delete
                 </span></button>
-                <button id="btn-edit" onclick="editTask(${i})"><span class="material-icons">
+
+                <button id="btn-edit-${i}" class="btn-edit" onclick="editTask(${i})"><span class="material-icons">
                 mode_edit_outline
                 </span></button>
+
+                <button id="btn-save-${i}" class="btn-save d-none" onclick="saveTask(${i})"><span class="material-icons">
+                save
+                </span></button>
+
             </div>
         </div>`;
             addBorderColors(currentTask, i);
@@ -111,20 +110,29 @@ function deleteTask(i) {
 }
 
 function editTask(i) {
-    console.log('edit', i)
 
     let titleContainer = document.getElementById(`titleContainer-${i}`);
     titleContainer.setAttribute("contenteditable", "true");
     titleContainer.focus();
     let textContainer = document.getElementById(`textContainer-${i}`);
     textContainer.setAttribute("contenteditable", "true");
+    let urgencySelector = document.getElementById(`urgency-${i}`);
+    urgencySelector.style.appearance = "auto"; //show arrow for dropdown
 
-
+    btnChangeBgr(i);
+    showSaveBtn(i);
 }
 
-function makeCalEditable() {
-    console.log('changeDate')
-
+function changeDueDate(i) {
+    let inputfield = document.getElementById(`dueDate-${i}`)
+    inputfield.removeAttribute("onclick");
+    instance = new dtsel.DTS(`input[name="input${i}"]`, {
+        direction: 'BOTTOM',
+        dateFormat: "dd / mm / yyyy"
+    });
+    if (inputfield.value) {
+        inputfield.setAttribute("onclick", "showDatapicker(${i})")
+    }
 }
 
 function changeUser() {
@@ -137,6 +145,20 @@ function showMsgEmptyBacklog() {
 }
 
 
-function saveAfterEdit(){
+function saveAfterEdit() {
     console.log('save after edit');
+}
+
+// when edit-btn is clicked
+function btnChangeBgr(i) {
+    let activeEditBtn = document.getElementById(`btn-edit-${i}`);
+    activeEditBtn.classList.add('btn-active');
+}
+
+function showSaveBtn(i) {
+    let editBtn = document.getElementById(`btn-edit-${i}`);
+    editBtn.classList.add('d-none');
+
+    let saveBtn = document.getElementById(`btn-save-${i}`)
+    saveBtn.classList.remove('d-none')
 }

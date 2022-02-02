@@ -6,6 +6,18 @@
     bottom: 0.15rem;
  }
 
+ .urgencySelector{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    font-family: 'PT Sans', sans-serif;
+    font-style: unset;
+    font-weight: normal;
+    width: 100%;
+    appearance: none;  /* hide the arrow for dropdown per default */
+ }
+
 
 .d-none {
     display: none !important;
@@ -170,6 +182,7 @@ header span {
     flex-direction: column;
     background-color: rgba(211, 211, 211, 0.281);
     border-radius: 8px;
+
 }
 
 .taskButtons button {
@@ -177,6 +190,7 @@ header span {
     width: 100%;
     border: solid 1px rgba(255, 255, 255, 0);
     background-color: rgb(180, 180, 180);
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
 }
 
 .taskButtons button:hover{
@@ -192,8 +206,17 @@ header span {
     border-radius: 0px 8px 0px 0px;
 }
 
-#btn-edit {
+.btn-edit {
     border-radius: 0px 0px 8px 0px;
+}
+
+.btn-save {
+    border-radius: 0px 0px 8px 0px;
+    background-color: white!important;
+}
+
+.btn-save .material-icons{
+    color: blue;
 }
 
 .msgEmptyBacklog {
