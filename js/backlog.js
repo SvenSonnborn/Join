@@ -133,7 +133,7 @@ function changeDueDate(i) {
         dateFormat: "dd / mm / yyyy"
     });
     if (inputfield.value) {
-        inputfield.setAttribute("onclick", "showDatapicker(${i})")
+        inputfield.setAttribute("onclick", `changeDueDate(${i})`)
     }
 }
 
