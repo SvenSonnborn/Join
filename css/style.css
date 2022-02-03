@@ -20,6 +20,16 @@ h3{
     font-size: 1.1rem;
     color: blue;
 }
+::placeholder{
+    font-family: 'PT Sans', sans-serif;
+    font-size: 1.1rem;
+}
+textarea{
+    font-family: 'PT Sans', sans-serif;
+}
+input{
+    font-family: 'PT Sans', sans-serif;
+}
 
 .flex{
     display: flex;
