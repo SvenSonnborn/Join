@@ -26,6 +26,9 @@ function CreateTask() {
   CreateDescription();
   CreateUsers();
 
+  // Status = "backlog";
+  // Push in JSON mit Titel,DueDate,Category,Urgency,Description,Assigned[User[indexnumber]],Status
+
   ClearInput();
 }
 function CreateTitel() {
@@ -61,7 +64,7 @@ function RenderUser(){
    for (let i = 0; i < user.length; i++) {
       let CurrentUser = user[i];
       selection.innerHTML += `
-        <div class="UserBox" id="UserBox">
+        <div class="UserBox" id="UserBox[i]">
            <h3>${CurrentUser.Name}</h3>
            <h4>${CurrentUser.Email}</h4>
            <img id="userImg" src="${CurrentUser.UserImage}" alt="user Image">
