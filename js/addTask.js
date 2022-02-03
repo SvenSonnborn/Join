@@ -3,11 +3,12 @@ let DueDate;
 let Category;
 let Urgency;
 let Description;
-let Users=[];
+let Users = [];
 let CurrentUser;
 
 function load() {
   includeHTML();
+  RenderUser();
 }
 function ClearInput() {
   document.getElementById("Titel").value = "";
@@ -17,55 +18,54 @@ function ClearInput() {
   document.getElementById("Description").value = "";
   document.getElementById("Users").value = "";
 }
-function CreateTask(){
-   CreateTitel();
-   CreateDueDate();
-   CreateCategory();
-   CreateUrgency();
-   CreateDescription();
-   CreateUsers();
+function CreateTask() {
+  CreateTitel();
+  CreateDueDate();
+  CreateCategory();
+  CreateUrgency();
+  CreateDescription();
+  CreateUsers();
 
-   ClearInput()
+  ClearInput();
 }
-function CreateTitel(){
-   Titel = document.getElementById("Titel").value;
-}
-
-function CreateDueDate(){
-   DueDate = document.getElementById("DueDate").value;
+function CreateTitel() {
+  Titel = document.getElementById("Titel").value;
 }
 
-function CreateCategory(){
-   Category = document.getElementById("Category").value;
+function CreateDueDate() {
+  DueDate = document.getElementById("DueDate").value;
 }
 
-function CreateUrgency(){
-   Urgency = document.getElementById("Urgency").value;
+function CreateCategory() {
+  Category = document.getElementById("Category").value;
 }
 
-function CreateDescription(){
-   Description = document.getElementById("Description").value;
+function CreateUrgency() {
+  Urgency = document.getElementById("Urgency").value;
 }
 
-function CreateUsers(){
-
+function CreateDescription() {
+  Description = document.getElementById("Description").value;
 }
 
-function AddUser(){
-   document.getElementById('UserOverlay').classList.remove('d-none');
-   for (let i = 0; i < user.lengt; i++) {   
+function CreateUsers() {}
+
+function AddUser() {
+  document.getElementById("UserOverlay").classList.remove("d-none");
+}
+function CloseOverlay() {
+  document.getElementById("UserOverlay").classList.add("d-none");
+}
+function RenderUser(){
+   let selection = document.getElementById("UserSelection");
+   for (let i = 0; i < user.length; i++) {
       let CurrentUser = user[i];
-      document.getElementById('UserSelection').innerHTML.add = `
-      <div class="UserBox" id="UserBox">
-         <h3>${CurrentUser.Name}</h3>
-         <h4>${CurrentUser.Email}</h4>
-         <img src
-      </div>
-      `;
-   }
+      selection.innerHTML += `
+        <div class="UserBox" id="UserBox">
+           <h3>${CurrentUser.Name}</h3>
+           <h4>${CurrentUser.Email}</h4>
+           <img id="userImg" src="${CurrentUser.UserImage}" alt="user Image">
+        </div>
+        `;
+    }
 }
-function CloseOverlay(){
-   document.getElementById('UserOverlay').classList.add('d-none');
-
-}
-
