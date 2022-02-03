@@ -36,17 +36,17 @@ let user = [
     {
         Name: "Peter Cook",
         Email: "peter@gmail.com",
-        UserImage: "img/profile6.png",
+        UserImage: "./img/profile6.png",
     },
     {
         Name: "Hans Makrone",
         Email: "hans@gmx.de",
-        UserImage: "img/profile3.png",
+        UserImage: "./img/profile3.png",
     },
     {
         Name: "Mila Mantau",
         Email: "mila@web.de",
-        UserImage: "img/profile2.png",
+        UserImage: "./img/profile2.png",
     },
 ];
 let tasks = [

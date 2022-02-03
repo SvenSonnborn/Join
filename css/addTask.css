@@ -35,6 +35,17 @@
 .inputfield{
    height: 2.5rem;
    width: 100%;
+   margin-top: 0.6rem;
+}
+.paddingInBox{
+   padding-left: 0.5rem;
+
+}
+.marginInBox{
+   margin-top: 0.6rem;
+}
+.textInBox{
+   font-size: 0.9rem;
 }
 .datepicker{
    position: relative;
@@ -53,4 +64,34 @@
    position: absolute;
    left: 0px;
    top: 1rem;
+}
+.Buttonbox{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   margin-top: 3rem;
+   width: 100%;
+   height: 20%;
+}
+.Useroverlay{
+   position: absolute;
+   top: 20%;
+   left: 20%;
+   z-index: 2;
+   width: 60%;
+   height: 60%;
+}
+.OverlayBackground{
+   position: absolute;
+   background-color: rgba(128, 128, 128, 0.856);
+   width: 100vw;
+   height: 100vh;
+}
+.CloseImg{
+   position: absolute;
+   z-index: 5;
+   top: 1rem;
+   right: 1rem;
+   width: 3rem;
+   height: 3rem;
 }
