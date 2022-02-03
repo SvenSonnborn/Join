@@ -84,3 +84,18 @@ input{
 .color-designer{
     border-left: 9px solid rgb(228, 165, 17);
 }
+
+@media (max-width: 900px) {
+    .Complete{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        border: none;
+    }
+
+
+}
