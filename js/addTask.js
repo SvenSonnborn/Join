@@ -5,11 +5,13 @@ let Urgency;
 let Description;
 let UsersSelected = [];
 let CurrentUser;
+let TestTask = [];
 
 function load() {
   includeHTML();
   RenderUser();
 }
+
 function ClearInput() {
   document.getElementById("Titel").value = "";
   document.getElementById("Category").value = "Marketing";
@@ -17,21 +19,28 @@ function ClearInput() {
   document.getElementById("Urgency").value = "High";
   document.getElementById("Description").value = "";
   document.getElementById("Users").value = "";
-
   ClearUser();
 }
+
 function CreateTask() {
+  CreateArray();
+  CreateJSON();
+  ClearInput();
+}
+
+function CreateJSON(){
+  for (let i = 0; i < UsersSelected.length; i++) {
+    TestTask.push({Titel : Titel, DueDate : DueDate, Category : Category, Urgency : Urgency, Description : Description, Assigned : UsersSelected[i], Status : "backlog"})
+  }
+}
+
+function CreateArray(){
   CreateTitel();
   CreateDueDate();
   CreateCategory();
   CreateUrgency();
   CreateDescription();
   CreateUsers();
-
-  // Status = "backlog";
-  // Push in JSON mit Titel,DueDate,Category,Urgency,Description,Assigned[User[indexnumber]],Status
-
-  ClearInput();
 }
 function CreateTitel() {
   Titel = document.getElementById("Titel").value;
@@ -110,6 +119,7 @@ function ClearUser(){
   document.getElementById('UserSelection').innerHTML = ``;
   RenderUser();
   document.getElementById('Users').innerHTML = ``;
+  UsersSelected = [];
 }
 
 
