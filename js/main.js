@@ -133,25 +133,25 @@ let tasks = [
   },
 ];
 
-function current(id) {
-  if (id === 1) {
-    document.getElementById("AddTask").classList.add("current");
-    document.getElementById("Backlog").classList.remove("current");
-    document.getElementById("Board").classList.remove("current");
-    document.getElementById("Help").classList.remove("current");
-  } else if (id === 2) {
-    document.getElementById("Backlog").classList.add("current");
-    document.getElementById("AddTask").classList.remove("current");
-    document.getElementById("Board").classList.remove("current");
-    document.getElementById("Help").classList.remove("current");
-  } else if (id === 3) {
-    document.getElementById("Board").classList.add("current");
-    document.getElementById("AddTask").classList.remove("current");
-    document.getElementById("Backlog").classList.remove("current");
-    document.getElementById("Help").classList.remove("current");
-  } else if (id === 4) {
-    document.getElementById("Help").classList.add("current");
-    document.getElementById("AddTask").classList.remove("current");document.getElementById("Backlog").classList.remove("current");
-    document.getElementById("Board").classList.remove("current");
-  }
-}
+//function current(id) {
+//  if (id === 1) {
+//    document.getElementById("AddTask").classList.add("current");
+//    document.getElementById("Backlog").classList.remove("current");
+//    document.getElementById("Board").classList.remove("current");
+//    document.getElementById("Help").classList.remove("current");
+//  } else if (id === 2) {
+//    document.getElementById("Backlog").classList.add("current");
+//    document.getElementById("AddTask").classList.remove("current");
+//    document.getElementById("Board").classList.remove("current");
+//    document.getElementById("Help").classList.remove("current");
+//  } else if (id === 3) {
+//    document.getElementById("Board").classList.add("current");
+//    document.getElementById("AddTask").classList.remove("current");
+//    document.getElementById("Backlog").classList.remove("current");
+//    document.getElementById("Help").classList.remove("current");
+//  } else if (id === 4) {
+//    document.getElementById("Help").classList.add("current");
+//    document.getElementById("AddTask").classList.remove("current");document.getElementById("Backlog").classList.remove("current");
+//    document.getElementById("Board").classList.remove("current");
+//  }
+//}

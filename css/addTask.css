@@ -1,22 +1,23 @@
-.doublebox{
+.doublebox {
    display: flex;
    justify-content: space-between;
    padding-left: 3rem;
    padding-right: 3rem;
    padding-top: 2rem;
 }
-.singlebox{
+
+.singlebox {
    width: 40%;
    display: flex;
    flex-direction: column;
 }
 
-.singlebox img{
+.singlebox img {
    width: 3rem;
    height: 3rem;
 }
 
-.rightbox{
+.rightbox {
    display: flex;
    align-items: center;
    flex-direction: column;
@@ -25,47 +26,57 @@
    margin-right: 2rem;
    position: relative;
 }
-.selectionBox{
+
+.selectionBox {
    height: 70%;
    width: 100%;
    position: absolute;
    margin-top: 8rem;
    left: 0rem;
 }
-.inputfield{
+
+.inputfield {
    height: 2.5rem;
    width: 100%;
    margin-top: 0.6rem;
 }
-.paddingInBox{
+
+.paddingInBox {
    padding-left: 0.5rem;
 
 }
-.marginInBox{
+
+.marginInBox {
    margin-top: 0.6rem;
 }
-.textInBox{
+
+.textInBox {
    font-size: 0.9rem;
 }
-.datepicker{
+
+.datepicker {
    position: relative;
 }
-.pointer:hover{
+
+.pointer:hover {
    cursor: pointer;
 }
-.Calender{
+
+.Calender {
    width: 2.6rem !important;
    height: 2.6rem !important;
    position: absolute;
    right: -0.2rem;
    bottom: 0.15rem;
 }
-.headline{
+
+.headline {
    position: absolute;
    left: 0px;
    top: 1rem;
 }
-.Buttonbox{
+
+.Buttonbox {
    display: flex;
    justify-content: space-around;
    align-items: center;
@@ -73,7 +84,8 @@
    width: 100%;
    height: 20%;
 }
-.UserOverlay{
+
+.UserOverlay {
    position: absolute;
    top: 10%;
    left: 20%;
@@ -83,13 +95,15 @@
    display: flex;
    flex-wrap: wrap;
 }
-.OverlayBackground{
+
+.OverlayBackground {
    position: absolute;
    background-color: rgba(128, 128, 128, 0.856);
    width: 100vw;
    height: 100vh;
 }
-.CloseImg{
+
+.CloseImg {
    position: absolute;
    z-index: 5;
    top: 1rem;
@@ -97,7 +111,8 @@
    width: 3rem;
    height: 3rem;
 }
-.UserBox{
+
+.UserBox {
    width: 27%;
    margin: 1%;
    height: 13rem;
@@ -110,20 +125,25 @@
    color: antiquewhite;
    align-items: center;
    position: relative;
+   overflow: scroll;
 }
-.UserBox h3{
+
+.UserBox h3 {
    color: antiquewhite;
 }
-.UserBox img{
+
+.UserBox img {
    width: 5rem;
    height: 5rem;
    border-radius: 100%;
 }
-.UserBox:hover{
+
+.UserBox:hover {
    cursor: pointer;
    background-color: rgba(0, 128, 0, 0.075);
 }
-.Selected{
+
+.Selected {
    display: flex;
    align-items: center;
    position: absolute;
@@ -133,7 +153,82 @@
    height: 100%;
    background-color: rgba(20, 20, 20, 0.849);
 }
-.Selected h3{
+
+.Selected h3 {
    color: antiquewhite;
-text-align: center;
+   text-align: center;
+}
+
+@media (max-height: 960px) {
+   .Buttonbox {
+      margin-top: 0;
+   }
+
+   .selectionBox {
+      margin-top: 6rem;
+      height: 80%;
+   }
+}
+
+@media (max-width: 960px) {
+   .selectionBox {
+      margin-top: 3rem;
+   }
+
+   .rightbox {
+      margin: 0;
+   }
+
+   .headline {
+      top: 0.3rem;
+      text-align: center;
+      width: 100%;
+      height: 4.5rem;
+   }
+
+   .doublebox {
+      flex-direction: column;
+      width: 90%;
+      padding-top: 0.6rem;
+      padding-left: 0.8rem;
+      padding-right: 0.8rem;
+   }
+
+   .Buttonbox {
+      height: 3.1rem;
+      margin-top: 0.3rem;
+   }
+
+   .singlebox {
+      width: 100%;
+      text-align: center;
+   }
+
+   .inputfield {
+      width: calc(100% - 0.5rem);
+   }
+
+   .Assigned {
+      display: flex;
+      justify-content: center;
+   }
+
+   textarea {
+      height: 3rem;
+   }
+
+   .inputfield {
+      height: 2.0rem;
+   }
+
+   .Calender {
+      width: 1.8rem !important;
+      height: 1.8rem !important;
+      right: 0.2rem;
+      bottom: 0.24rem;
+   }
+   .UserBox{
+      left: 0.5%;
+      margin: 0.8%;
+   }
 }
