@@ -48,6 +48,11 @@ let user = [
         Email: "mila@web.de",
         UserImage: "./img/profile2.png",
     },
+    {
+        Name: "Sven Sonnborn",
+        Email: "s.sborn@gmail.com",
+        UserImage: "./img/profile4.png",
+    },
 ];
 let tasks = [
     {

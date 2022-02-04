@@ -3,7 +3,7 @@ let DueDate;
 let Category;
 let Urgency;
 let Description;
-let Users = [];
+let UsersSelected = [];
 let CurrentUser;
 
 function load() {
@@ -17,6 +17,8 @@ function ClearInput() {
   document.getElementById("Urgency").value = "High";
   document.getElementById("Description").value = "";
   document.getElementById("Users").value = "";
+
+  ClearUser();
 }
 function CreateTask() {
   CreateTitel();
@@ -53,7 +55,7 @@ function CreateDescription() {
 
 function CreateUsers() {}
 
-function AddUser() {
+function ShowOverlay() {
   document.getElementById("UserOverlay").classList.remove("d-none");
 }
 function CloseOverlay() {
@@ -64,11 +66,50 @@ function RenderUser(){
    for (let i = 0; i < user.length; i++) {
       let CurrentUser = user[i];
       selection.innerHTML += `
-        <div class="UserBox" id="UserBox[i]">
+        <div class="UserBox" id="UserBox${i}" onclick="AddUser(${i})">
            <h3>${CurrentUser.Name}</h3>
-           <h4>${CurrentUser.Email}</h4>
+           <h5>${CurrentUser.Email}</h4>
            <img id="userImg" src="${CurrentUser.UserImage}" alt="user Image">
         </div>
         `;
     }
 }
+
+function AddUser(id){
+  UsersSelected.push({Name : user[id].Name, Email : user[id].Email, UserImage : user[id].UserImage})
+  RenderSelected();
+  AllreadySelected(id);
+}
+
+function RenderSelected(){
+  document.getElementById('Users').innerHTML = ``;
+  for (let i = 0; i < UsersSelected.length; i++) {
+    let UserShown = document.getElementById('Users');
+    UserShown.innerHTML += `
+    <img src="${UsersSelected[i].UserImage}" class="marginInBox">
+    `;
+  }
+}
+
+function AllreadySelected(id){
+  let Selected = document.getElementById(`UserBox${id}`);
+  Selected.innerHTML += `
+  <div class="Selected" id="SelectedBox${id}">
+    <h3> Allready Selected for this Task </h3>
+  </div>
+  `;
+  removeOnclick(id);
+}
+
+function removeOnclick(id){
+  document.getElementById(`UserBox${id}`).removeAttribute("onclick");
+  document.getElementById(`UserBox${id}`).style.cursor = "auto";
+}
+
+function ClearUser(){
+  document.getElementById('UserSelection').innerHTML = ``;
+  RenderUser();
+  document.getElementById('Users').innerHTML = ``;
+}
+
+
