@@ -6,8 +6,8 @@ function initBacklog() {
 }
 
 function render() {
-    let mainContainer = document.getElementById('allTasks')
-    backlogTasks = tasks.filter((task) => { return task.Status === "backlog" })
+    let mainContainer = document.getElementById('allTasks');
+    backlogTasks = tasks.filter((task) => { return task.Status === "backlog" });
     mainContainer.innerHTML = '';
 
 
@@ -148,9 +148,18 @@ function showMsgEmptyBacklog() {
 
 
 function saveTask(i) {
+let titleTask = document.getElementById(`titleContainer-${i}`);
+let textTask = document.getElementById(`textContainer-${i}`);
+
+
+
+
+
 showEditBtn(i);
 removeEditMode(i);
 }
+
+
 
 // when edit-btn is clicked
 function btnChangeBgr(i) {
