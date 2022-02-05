@@ -1,5 +1,13 @@
 let backlogTasks;
 
+function createDueDatePicker(i){
+    inputName = `dateTimePicker${i}`;
+    instance = new dtsel.DTS(`input[name=${inputName}]`, {
+        direction: 'BOTTOM',
+        dateFormat: "dd / mm / yyyy"
+    });
+}
+
 function initBacklog() {
     includeHTML();
     render();
@@ -12,14 +20,14 @@ function render() {
 
     for (let i = 0; i < tasks.length; i++) {
         let currentTask = tasks[i];
-        let taskStatus = currentTask.Status;
-
-        if (taskStatus === "backlog") {
+        if (currentTask.Status === "backlog") {
             backlogTasks++;
             mainContainer.innerHTML += generateTaskHTML(currentTask, i);
+
             addBorderColor(currentTask, i);
+            createDueDatePicker(i);    }
+
         }
-    }
     checkEmptyBacklog();
 }
 
@@ -63,7 +71,6 @@ function deleteTask(i) {
 }
 
 function startEditMode(i) {
-
     let titleContainer = document.getElementById(`titleContainer-${i}`);
     titleContainer.setAttribute("contenteditable", "true");
     titleContainer.focus();
@@ -79,17 +86,6 @@ function startEditMode(i) {
     showSaveBtn(i);
 }
 
-function changeDueDate(i) {
-    let inputfield = document.getElementById(`dueDate-${i}`)
-    inputfield.removeAttribute("onclick");
-    instance = new dtsel.DTS(`input[name="input${i}"]`, {
-        direction: 'BOTTOM',
-        dateFormat: "dd / mm / yyyy"
-    });
-    if (inputfield.value) {
-        inputfield.setAttribute("onclick", `changeDueDate(${i})`)
-    }
-}
 
 function changeUser() {
     console.log('changeUser')
@@ -100,16 +96,22 @@ function showMsgEmptyBacklog() {
     container.classList.remove('d-none')
 }
 
-
 function saveTask(i) {
-    let titleTask = document.getElementById(`titleContainer-${i}`);
-    let textTask = document.getElementById(`textContainer-${i}`);
+
+
+    let titleTask = document.getElementById(`titleContainer-${i}`).innerText;
+    let textTask = document.getElementById(`textContainer-${i}`).innerText;
+    // let dueDate = document.getElementById(`input${i}`).value;
+    let urgencyField = document.getElementById(`urgency-${i}`);
+    let selectedUrgency = urgencyField.options[urgencyField.selectedIndex].value;
+    tasks[i].Title = titleTask;
+    tasks[i].Description = textTask;
+    tasks[i].Urgency = selectedUrgency;    
+    // tasks[i].DueDate = dueDate;
 
     showEditBtn(i);
     removeEditMode(i);
 }
-
-
 
 // when edit-btn is clicked
 function btnChangeBgr(i) {
@@ -146,7 +148,6 @@ function removeEditMode(i) {
 
     let dueDateInput = document.getElementById(`dueDate-${i}`);
     dueDateInput.classList.add('deactivateClick');
-
 }
 
 function generateTaskHTML(currentTask, i) {
@@ -161,16 +162,17 @@ function generateTaskHTML(currentTask, i) {
             </div>
 
             <div class="taskTimeline d-flex-center"> 
-                <span id="dueDate-${i}" class="deactivateClick" onclick="changeDueDate(${i})">
-                    <div class="material-icons">event</div><input name="input${i}" placeholder="${currentTask.DueDate}"/>
-                </span>
-                
+                <span id="dueDate-${i}" >
+                    <div class="material-icons">event</div>
+                    <input name="dateTimePicker${i}" id="DueDate${i}">
 
+                    </span>
+                
                 <span>
                     <div class="material-icons">av_timer</div>
                     
                     <select id="urgency-${i}" name="Urgency" class="urgencySelector deactivateClick">
-                        <option value="none" selected disabled >${currentTask.Urgency}</option>
+                        <option value="${currentTask.Urgency}" selected disabled >${currentTask.Urgency}</option>
                         <option value="High">High</option>
                         <option value="Mid">Mid</option>
                         <option value="Low">Low</option>
