@@ -1,49 +1,31 @@
-.Calender{
-    width: 2.6rem !important;
-    height: 2.6rem !important;
-    position: absolute;
-    right: -0.2rem;
-    bottom: 0.15rem;
- }
-
- .urgencySelector{
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-    font-size: 1rem;
-    font-family: 'PT Sans', sans-serif;
-    font-style: unset;
-    font-weight: normal;
-    width: 100%;
-    appearance: none;  /* hide the arrow for dropdown per default */
- }
-
- .deactivateClick{
+.deactivateClick {
     pointer-events: none;
     cursor: initial;
- }
-
+}
 
 .d-none {
     display: none !important;
 }
 
-.overflow-auto{
+.overflow-auto {
     overflow: auto;
 }
 
-.box-shadow{
+.box-shadow {
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .section {
-    width: 80%;
+width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     background-color: rgba(214, 224, 224, 0.144);
-    padding: 30px 30px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 header {
@@ -58,7 +40,7 @@ header {
 .material-icons {
     font-size: 1.5em;
     text-align: center;
-    color:white;
+    color: white;
     cursor: pointer;
 }
 
@@ -72,8 +54,6 @@ header span {
     line-height: 2em;
 }
 
-
-
 /* Main Task Container with all Single Tasks */
 .allTasks {
     width: 100%;
@@ -82,7 +62,6 @@ header span {
     margin-top: 15px;
     gap: 20px;
 }
-
 
 /* Single Task Container */
 
@@ -96,7 +75,7 @@ header span {
     border-radius: 8px 0px 0px 8px;
 }
 
-.containerHeight{
+.containerHeight {
     min-height: 100px;
     max-height: 136px;
 }
@@ -145,9 +124,8 @@ header span {
     align-items: center;
     display: flex;
     box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
-
 }
-.taskTimeline .material-icons{
+.taskTimeline .material-icons {
     margin-right: 10px;
     font-size: 1em;
     line-height: unset;
@@ -155,37 +133,56 @@ header span {
     cursor: default;
 }
 
-.taskTimeline input{
+.taskTimeline input {
     cursor: pointer;
     border: none;
     background-color: transparent;
     font-size: 1rem;
-    font-family: 'PT Sans', sans-serif;
+    font-family: "PT Sans", sans-serif;
     font-style: unset;
     font-weight: normal;
     width: 100%;
 }
 
-.taskTimeline input::placeholder{
+.taskTimeline input::placeholder {
     color: black;
 }
 
+.Calender {
+    width: 2.6rem !important;
+    height: 2.6rem !important;
+    position: absolute;
+    right: -0.2rem;
+    bottom: 0.15rem;
+}
+
+.urgencySelector {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    font-family: "PT Sans", sans-serif;
+    font-style: unset;
+    font-weight: normal;
+    width: 100%;
+    appearance: none; /* hide the arrow for dropdown per default */
+}
 
 .taskDescription {
     flex: 6;
     display: flex;
-    flex-direction: column!important;
+    flex-direction: column !important;
     align-items: flex-start;
     overflow-x: hidden;
     max-width: 100%;
 }
 
-.taskDescription .titleTask{
+.taskDescription .titleTask {
     font-weight: 700;
     overflow-wrap: anywhere;
 }
 
-.taskDescription .textTask{
+.taskDescription .textTask {
     overflow-wrap: anywhere;
 }
 
@@ -202,7 +199,6 @@ header span {
     flex-direction: column;
     background-color: rgba(211, 211, 211, 0.281);
     border-radius: 8px;
-
 }
 
 .taskButtons button {
@@ -213,14 +209,13 @@ header span {
     box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
 }
 
-.taskButtons button:hover{
+.taskButtons button:hover {
     background-color: white;
 }
 
-.taskButtons button:hover .material-icons{
+.taskButtons button:hover .material-icons {
     color: blue;
 }
-
 
 #btn-addBoard {
     border-radius: 0px 8px 0px 0px;
@@ -232,10 +227,10 @@ header span {
 
 .btn-save {
     border-radius: 0px 0px 8px 0px;
-    background-color: white!important;
+    background-color: white !important;
 }
 
-.btn-save .material-icons{
+.btn-save .material-icons {
     color: blue;
 }
 
