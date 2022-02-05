@@ -1,9 +1,12 @@
+let backlogTasks;
+
 function initBacklog() {
     includeHTML();
     render();
 }
 
 function render() {
+    backlogTasks = 0;
     let mainContainer = document.getElementById('allTasks');
     mainContainer.innerHTML = '';
 
@@ -12,17 +15,21 @@ function render() {
         let taskStatus = currentTask.Status;
 
         if (taskStatus === "backlog") {
-            mainContainer.innerHTML += generateTaskHTML(currentTask,i);
-            addBorderColors(currentTask, i);
+            backlogTasks++;
+            mainContainer.innerHTML += generateTaskHTML(currentTask, i);
+            addBorderColor(currentTask, i);
         }
-        else {
-            showMsgEmptyBacklog();
-        }
+    }
+    checkEmptyBacklog();
+}
+
+function checkEmptyBacklog() {
+    if (backlogTasks === 0) {
+        showMsgEmptyBacklog();
     }
 }
 
-
-function addBorderColors(currentTask, i) {
+function addBorderColor(currentTask, i) {
     if (currentTask.Category == 'Marketing') {
         let taskContainer = document.getElementById(`task-${i}`);
         taskContainer.classList.add('color-marketing');
@@ -42,14 +49,16 @@ function addBorderColors(currentTask, i) {
 }
 
 function addTaskToBoard(i) {
-    let taskToAdd = backlogTasks[i];
+    let taskToAdd = tasks[i];
     taskToAdd.Status = "toDo";
+    backlogTasks--;
     render();
 }
 
 function deleteTask(i) {
-    let taskToDelete = backlogTasks[i];
+    let taskToDelete = tasks[i];
     taskToDelete.Status = "archived";
+    backlogTasks--;
     render();
 }
 
@@ -96,10 +105,6 @@ function saveTask(i) {
     let titleTask = document.getElementById(`titleContainer-${i}`);
     let textTask = document.getElementById(`textContainer-${i}`);
 
-
-
-
-
     showEditBtn(i);
     removeEditMode(i);
 }
@@ -144,7 +149,7 @@ function removeEditMode(i) {
 
 }
 
-function generateTaskHTML(currentTask,i) {
+function generateTaskHTML(currentTask, i) {
     return `<div class="taskContainer-wrapper d-flex-center box-shadow">
     <div class="taskContainer containerHeight" id="task-${i}">
             <div class="assignedTo d-flex-center" >
