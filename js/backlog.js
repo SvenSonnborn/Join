@@ -1,5 +1,3 @@
-let backlogTasks = [];
-
 function initBacklog() {
     includeHTML();
     render();
@@ -7,72 +5,19 @@ function initBacklog() {
 
 function render() {
     let mainContainer = document.getElementById('allTasks');
-    backlogTasks = tasks.filter((task) => { return task.Status === "backlog" });
     mainContainer.innerHTML = '';
 
+    for (let i = 0; i < tasks.length; i++) {
+        let currentTask = tasks[i];
+        let taskStatus = currentTask.Status;
 
-    if (backlogTasks.length > 0) {
-        for (let i = 0; i < backlogTasks.length; i++) {
-            let currentTask = backlogTasks[i];
-            mainContainer.innerHTML +=
-                `<div class="taskContainer-wrapper d-flex-center box-shadow">
-            <div class="taskContainer containerHeight" id="task-${i}">
-                    <div class="assignedTo d-flex-center" >
-                        <img id="userImg" src="${currentTask.Assigned.UserImage}" alt="user Image">
-                        <div class="userData">
-                            <span id="userName">${currentTask.Assigned.Name}</span><br>
-                            <span id="userEmail">${currentTask.Assigned.Email}</span>
-                        </div>
-                    </div>
-
-                    <div class="taskTimeline d-flex-center"> 
-                        <span id="dueDate-${i}" class="deactivateClick" onclick="changeDueDate(${i})">
-                            <div class="material-icons">event</div><input name="input${i}" placeholder="${currentTask.DueDate}"/>
-                        </span>
-                        
-
-                        <span>
-                            <div class="material-icons">av_timer</div>
-                            
-                            <select id="urgency-${i}" name="Urgency" class="urgencySelector deactivateClick">
-                                <option value="none" selected disabled >${currentTask.Urgency}</option>
-                                <option value="High">High</option>
-                                <option value="Mid">Mid</option>
-                                <option value="Low">Low</option>
-                            </select>
-                            
-                        </span>
-                    </div>
-                    <div class="taskDescription ">
-                        <div id="titleContainer-${i}" class="titleTask">${currentTask.Title}</div>
-                        <div id="textContainer-${i}" class="textTask">${currentTask.Description}</div>
-                    </div>
-            </div>
-
-            <div class="taskButtons d-flex-center">
-                <button id="btn-addBoard" onclick="addTaskToBoard(${i})"><span class="material-icons">
-                add
-                </span></button>
-
-                <button id="btn-delete" onclick="deleteTask(${i})"><span class="material-icons">
-                delete
-                </span></button>
-
-                <button id="btn-edit-${i}" class="btn-edit" onclick="startEditMode(${i})"><span class="material-icons">
-                mode_edit_outline
-                </span></button>
-
-                <button id="btn-save-${i}" class="btn-save d-none" onclick="saveTask(${i})"><span class="material-icons">
-                save
-                </span></button>
-
-            </div>
-        </div>`;
+        if (taskStatus === "backlog") {
+            mainContainer.innerHTML += generateTaskHTML(currentTask,i);
             addBorderColors(currentTask, i);
         }
-    }
-    else {
-        showMsgEmptyBacklog();
+        else {
+            showMsgEmptyBacklog();
+        }
     }
 }
 
@@ -148,15 +93,15 @@ function showMsgEmptyBacklog() {
 
 
 function saveTask(i) {
-let titleTask = document.getElementById(`titleContainer-${i}`);
-let textTask = document.getElementById(`textContainer-${i}`);
+    let titleTask = document.getElementById(`titleContainer-${i}`);
+    let textTask = document.getElementById(`textContainer-${i}`);
 
 
 
 
 
-showEditBtn(i);
-removeEditMode(i);
+    showEditBtn(i);
+    removeEditMode(i);
 }
 
 
@@ -175,7 +120,7 @@ function showSaveBtn(i) {
     saveBtn.classList.remove('d-none');
 }
 
-function showEditBtn(i){
+function showEditBtn(i) {
     let editBtn = document.getElementById(`btn-edit-${i}`);
     editBtn.classList.remove('d-none');
 
@@ -183,7 +128,7 @@ function showEditBtn(i){
     saveBtn.classList.add('d-none');
 }
 
-function removeEditMode(i){
+function removeEditMode(i) {
     let titleContainer = document.getElementById(`titleContainer-${i}`);
     titleContainer.setAttribute("contenteditable", "false");
 
@@ -197,4 +142,60 @@ function removeEditMode(i){
     let dueDateInput = document.getElementById(`dueDate-${i}`);
     dueDateInput.classList.add('deactivateClick');
 
+}
+
+function generateTaskHTML(currentTask,i) {
+    return `<div class="taskContainer-wrapper d-flex-center box-shadow">
+    <div class="taskContainer containerHeight" id="task-${i}">
+            <div class="assignedTo d-flex-center" >
+                <img id="userImg" src="${currentTask.Assigned.UserImage}" alt="user Image">
+                <div class="userData">
+                    <span id="userName">${currentTask.Assigned.Name}</span><br>
+                    <span id="userEmail">${currentTask.Assigned.Email}</span>
+                </div>
+            </div>
+
+            <div class="taskTimeline d-flex-center"> 
+                <span id="dueDate-${i}" class="deactivateClick" onclick="changeDueDate(${i})">
+                    <div class="material-icons">event</div><input name="input${i}" placeholder="${currentTask.DueDate}"/>
+                </span>
+                
+
+                <span>
+                    <div class="material-icons">av_timer</div>
+                    
+                    <select id="urgency-${i}" name="Urgency" class="urgencySelector deactivateClick">
+                        <option value="none" selected disabled >${currentTask.Urgency}</option>
+                        <option value="High">High</option>
+                        <option value="Mid">Mid</option>
+                        <option value="Low">Low</option>
+                    </select>
+                    
+                </span>
+            </div>
+            <div class="taskDescription ">
+                <div id="titleContainer-${i}" class="titleTask">${currentTask.Title}</div>
+                <div id="textContainer-${i}" class="textTask">${currentTask.Description}</div>
+            </div>
+    </div>
+
+    <div class="taskButtons d-flex-center">
+        <button id="btn-addBoard" onclick="addTaskToBoard(${i})"><span class="material-icons">
+        add
+        </span></button>
+
+        <button id="btn-delete" onclick="deleteTask(${i})"><span class="material-icons">
+        delete
+        </span></button>
+
+        <button id="btn-edit-${i}" class="btn-edit" onclick="startEditMode(${i})"><span class="material-icons">
+        mode_edit_outline
+        </span></button>
+
+        <button id="btn-save-${i}" class="btn-save d-none" onclick="saveTask(${i})"><span class="material-icons">
+        save
+        </span></button>
+
+    </div>
+</div>`;
 }
