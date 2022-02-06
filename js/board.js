@@ -11,7 +11,10 @@ let doneTasks;
     let doneTasks = 0;
 } */
 
-function initBoard() {
+async function init() {
+    await downloadFromServer();
+    tasks = JSON.parse(backend.getItem("tasks")) || [];
+  
     includeHTML();
     render();
 }

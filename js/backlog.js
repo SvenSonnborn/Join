@@ -8,7 +8,10 @@ function createDueDatePicker(i) {
     });
 }
 
-function initBacklog() {
+async function init() {
+    await downloadFromServer();
+    tasks = JSON.parse(backend.getItem("tasks")) || [];
+  
     includeHTML();
     render();
 }

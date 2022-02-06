@@ -53,7 +53,8 @@ let user = [{
         UserImage: "./img/profile4.png",
     },
 ];
-let tasks = [{
+let task = [
+    {
         Title: "Titel Test 1",
         Category: "Sales", // Options: Sales, Production, Marketing, Designer
         Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
@@ -135,6 +136,10 @@ let tasks = [{
         Status: "backlog",
     },
 ];
+
+function deleteTask() {
+    backend.deleteItem('tasks');
+  }
 
 //function current(id) {
 //  if (id === 1) {
