@@ -12,31 +12,46 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/homepage.css">
+
 
     <!--JS FILES-->
     <script src="./js/main.js"></script>
     <script src="./js/mini_backend.js"></script>
+    <script defer src="./js/homepage.js"></script>
 
     <script>
-        setUrl('http://gruppe-150.developerakademie.net/smallest_backend_ever');
+        setURL('http://gruppe-150.developerakademie.net/smallest_backend_ever');
     </script>
 
 </head>
 
-<body>
 
-    <div class="flex" style="width: 100vw;">
-        <div style="background-color: rgba(27, 80, 255, 0.795); height: 100vh; width: 20%;">
+<body onload="init()">
+    <div class="flex Complete">
+        <div w3-include-html="template/navbar.html" class="navbar maincolorbackground"></div>
 
+        <div class="rightbox">
+            <main id="main-holder">
+                <img src="./img/profile3.png">
+                <h1 id="login-header">Login</h1>
+
+                <div id="login-error-msg-holder">
+                    <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+                </div>
+
+                <form id="login-form">
+                    <input type="text" name="username" id="username-field" class="login-form-field"
+                        placeholder="Username">
+                    <input type="password" name="password" id="password-field" class="login-form-field"
+                        placeholder="Password">
+                    <input type="submit" value="Login" id="login-form-submit">
+                </form>
+            </main>
         </div>
-
-        <div style="background-color: brown; height: 100vh; width: 80%;">
-
-        </div>
-
     </div>
-
 </body>
 
 </html>

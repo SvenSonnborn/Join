@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Join - Gruppenarbeit - 150</title>
+
+   <!--CSS FILES-->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet">
+   <link rel="stylesheet" href="./css/style.css">
+   <link rel="stylesheet" href="./css/navbar.css">
+   <link rel="stylesheet" href="./css/homepage.css">
+
+
+   <!--JS FILES-->
+   <script src="./js/main.js"></script>
+   <script src="./js/mini_backend.js"></script>
+   <script>
+      setURL('http://gruppe-150.developerakademie.net/smallest_backend_ever');
+   </script>
+   <script>
+      async function init() {
+         await downloadFromServer();
+         tasks = JSON.parse(backend.getItem("tasks")) || [];
+         includeHTML();
+      }
+   </script>
+
+</head>
+
+<body onload="init()">
+   <div class="flex Complete">
+      <div w3-include-html="template/navbar.html" class="navbar maincolorbackground"></div>
+
+      <div class="rightbox">
+         <img src="./img/joinlogo.png" style="width: 15%; margin-top: 10%;">
+         <h1 style="margin-top: 5%;">Welcome to our Project</h1>
+         <h3 style="margin-top: 5%; text-align: center;">For Showing purposes:<br> all functions are enabled no matter
+            what Login you used</h3>
+         <h4 style="text-align: left; margin-top: 1rem;">
+            Normally <br> 
+            Admin : All functions <br>
+            User : Delete Task disabled, Editing mode in Backlog disabled <br>
+            Guest: Only sees the Board and Backlog. No further functions then watching.
+         
+         </h4>
+      </div>
+   </div>
+</body>
+
+</html>
