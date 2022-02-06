@@ -24,7 +24,7 @@ function render() {
     document.getElementById('todo').innerHTML = '';
     for (let i = 0; i < tasks.length; i++) {
         let currentTask = tasks[i];
-        if (currentTask.Status === "toDo") {
+        if (currentTask.Status === 'toDo') {
             document.getElementById('todo').innerHTML += `
             <div>${currentTask.Title}<hr>
             </div>

@@ -1,4 +1,4 @@
-let Titel;
+let Title;
 let DueDate;
 let Category;
 let Urgency;
@@ -9,7 +9,7 @@ let tasks = [];
 
 
 function ClearInput() {
-  document.getElementById("Titel").value = "";
+  document.getElementById("Title").value = "";
   document.getElementById("Category").value = "Marketing";
   document.getElementById("DueDate").value = "";
   document.getElementById("Urgency").value = "High";
@@ -27,7 +27,7 @@ function CreateTask() {
 function CreateJSON() {
   for (let i = 0; i < UsersSelected.length; i++) {
     tasks.push({
-      Titel: Titel,
+      Title: Title,
       DueDate: DueDate,
       Category: Category,
       Urgency: Urgency,
@@ -40,14 +40,14 @@ function CreateJSON() {
 }
 
 function CreateArray() {
-  CreateTitel();
+  CreateTitle();
   CreateDueDate();
   CreateCategory();
   CreateUrgency();
   CreateDescription();
 }
-function CreateTitel() {
-  Titel = document.getElementById("Titel").value;
+function CreateTitle() {
+  Title = document.getElementById("Title").value;
 }
 
 function CreateDueDate() {

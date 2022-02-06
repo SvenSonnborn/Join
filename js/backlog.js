@@ -60,18 +60,19 @@ function addBorderColor(currentTask, i) {
 function addTaskToBoard(i) {
     let taskToAdd = tasks[i];
     taskToAdd.Status = "toDo";
-    changeStatus(i);
+    changeStatus();
     backlogTasks--;
     render();
 }
 
-async function changeStatus(i) {
+async function changeStatus() {
     await backend.setItem('tasks', JSON.stringify(tasks));
 }
 
 function deleteTask(i) {
     let taskToDelete = tasks[i];
     taskToDelete.Status = "archived";
+    changeStatus();
     backlogTasks--;
     render();
 }
@@ -114,6 +115,7 @@ function saveTask(i) {
 
     showEditBtn(i);
     removeEditMode(i);
+    changeStatus();
 }
 
 // when edit-btn is clicked

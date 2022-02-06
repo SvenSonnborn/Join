@@ -137,7 +137,7 @@ let task = [
     },
 ];
 
-function deleteTask() {
+function deleteTasks() {
     backend.deleteItem('tasks');
   }
 
