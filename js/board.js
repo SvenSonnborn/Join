@@ -3,13 +3,13 @@ let inprogressTasks;
 let testTasks;
 let doneTasks;
 
-function initialStatus() {
+/* function initialStatus() {
 
     let todoTasks = 0;
     let inprogressTasks = 0;
     let testTasks = 0;
     let doneTasks = 0;
-}
+} */
 
 function initBoard() {
     includeHTML();
@@ -17,15 +17,36 @@ function initBoard() {
 }
 
 function render() {
-    initialStatus();
+    /* initialStatus(); */
+    document.getElementById('todo').innerHTML = '';
     for (let i = 0; i < tasks.length; i++) {
         let currentTask = tasks[i];
-        document.getElementById('todo').innerHTML = '';
-        if (currentTask.Status === "todo") {
-            document.getElementById('todo').innerHTML += currentTask;
+        if (currentTask.Status === "toDo") {
+            document.getElementById('todo').innerHTML += `
+            <div>${currentTask.Title}<hr>
+            </div>
+            `;
+        }
+        if (currentTask.Status === "inProgress") {
+            document.getElementById('inprogress').innerHTML += `
+            <div>${currentTask.Title}<hr>
+            </div>
+            `;
+        }
+        if (currentTask.Status === "test") {
+            document.getElementById('test').innerHTML += `
+            <div>${currentTask.Title}<hr>
+            </div>
+            `;
+        }
+        if (currentTask.Status === "done") {
+            document.getElementById('done').innerHTML += `
+            <div>${currentTask.Title}<hr>
+            </div>
+            `;
         }
     }
-    checkEmptyTodo();
+    /* checkEmptyTodo(); */
 }
 
 function checkEmptyTodo() {
