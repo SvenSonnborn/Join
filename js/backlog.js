@@ -1,6 +1,6 @@
 let backlogTasks;
 
-function createDueDatePicker(i){
+function createDueDatePicker(i) {
     inputName = `dateTimePicker${i}`;
     instance = new dtsel.DTS(`input[name=${inputName}]`, {
         direction: 'BOTTOM',
@@ -23,11 +23,9 @@ function render() {
         if (currentTask.Status === "backlog") {
             backlogTasks++;
             mainContainer.innerHTML += generateTaskHTML(currentTask, i);
-
             addBorderColor(currentTask, i);
-            createDueDatePicker(i);    }
-
         }
+    }
     checkEmptyBacklog();
 }
 
@@ -79,9 +77,8 @@ function startEditMode(i) {
     let urgencySelector = document.getElementById(`urgency-${i}`);
     urgencySelector.style.appearance = "auto"; //show arrow for dropdown
     urgencySelector.classList.remove('deactivateClick');
-    let dueDateInput = document.getElementById(`dueDate-${i}`);
-    dueDateInput.classList.remove('deactivateClick');
 
+    createDueDatePicker(i);  // its not possible to have it created with the first render, bc it doesnt create multiple instances of DTSEL, only one at a time.
     btnChangeBgr(i);
     showSaveBtn(i);
 }
@@ -97,8 +94,6 @@ function showMsgEmptyBacklog() {
 }
 
 function saveTask(i) {
-
-
     let titleTask = document.getElementById(`titleContainer-${i}`).innerText;
     let textTask = document.getElementById(`textContainer-${i}`).innerText;
     // let dueDate = document.getElementById(`input${i}`).value;
@@ -106,7 +101,7 @@ function saveTask(i) {
     let selectedUrgency = urgencyField.options[urgencyField.selectedIndex].value;
     tasks[i].Title = titleTask;
     tasks[i].Description = textTask;
-    tasks[i].Urgency = selectedUrgency;    
+    tasks[i].Urgency = selectedUrgency;
     // tasks[i].DueDate = dueDate;
 
     showEditBtn(i);
@@ -164,7 +159,7 @@ function generateTaskHTML(currentTask, i) {
             <div class="taskTimeline d-flex-center"> 
                 <span id="dueDate-${i}" >
                     <div class="material-icons">event</div>
-                    <input name="dateTimePicker${i}" id="DueDate${i}">
+                    <input name="dateTimePicker${i}" id="dueDate${i}" value="${currentTask.DueDate}">
 
                     </span>
                 
