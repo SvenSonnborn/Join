@@ -91,10 +91,15 @@
    left: 20%;
    z-index: 2;
    width: 60%;
-   height: 80%;
+   height: 28rem;
    display: flex;
    flex-wrap: wrap;
+   overflow: scroll;
 }
+
+.UserOverlay::-webkit-scrollbar {
+   display: none;
+ }
 
 .OverlayBackground {
    position: absolute;
@@ -128,6 +133,15 @@
    overflow: scroll;
 }
 
+.UserBox::-webkit-scrollbar {
+   display: none;
+ }
+
+.Assigned {
+   display: flex;
+   justify-content: center;
+}
+
 .UserBox h3 {
    color: antiquewhite;
 }
@@ -135,6 +149,10 @@
 .UserBox img {
    width: 5rem;
    height: 5rem;
+   border-radius: 100%;
+}
+
+.Users img{
    border-radius: 100%;
 }
 
@@ -161,14 +179,15 @@
 
 @media (max-height: 960px) {
    .Buttonbox {
-      margin-top: 0;
+      margin-top: 1rem !important;
    }
 
    .selectionBox {
-      margin-top: 6rem;
-      height: 80%;
+      margin-top: 5rem !important;
+      height: calc(100% - 5rem);
    }
 }
+
 
 @media (max-width: 960px) {
    .selectionBox {
@@ -209,11 +228,6 @@
       width: calc(100% - 0.5rem);
    }
 
-   .Assigned {
-      display: flex;
-      justify-content: center;
-   }
-
    textarea {
       height: 3rem;
    }
@@ -231,5 +245,6 @@
    .UserBox{
       left: 0.5%;
       margin: 0.8%;
+      width: 43%;
    }
 }
