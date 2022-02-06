@@ -240,3 +240,40 @@ header span {
     padding: 8px 0px;
     margin-top: 16px;
 }
+
+
+@media (max-width: 760px) {
+
+    header{
+        width: 100%;
+        align-items: center;
+    }
+    .section{
+        margin-left: 0px!important;
+        margin-right: 0px!important;
+    }
+
+    .tableHead{
+        display: none;
+    }
+
+    .taskContainerWrapper{
+        max-width: 95%;
+    }
+
+    .taskContainer{
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        max-width: 100%;
+        gap: 20px;
+    }
+    
+    .taskTimeline{
+align-items: flex-start;
+    }
+    .containerHeight{
+        min-height: unset;
+        max-height: unset;
+    }
+}
