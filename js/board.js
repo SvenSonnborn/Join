@@ -3,31 +3,27 @@ let inprogressTasks;
 let testTasks;
 let doneTasks;
 
-/* function initialStatus() {
-
-    let todoTasks = 0;
-    let inprogressTasks = 0;
-    let testTasks = 0;
-    let doneTasks = 0;
-} */
 
 async function init() {
     await downloadFromServer();
-    tasks = JSON.parse(backend.getItem("tasks")) || [];
-  
+    tasks = JSON.parse(backend.getItem("tasks")) || []; //Danke Sven :)
+
     includeHTML();
     render();
 }
 
 function render() {
-    /* initialStatus(); */
     document.getElementById('todo').innerHTML = '';
     for (let i = 0; i < tasks.length; i++) {
         let currentTask = tasks[i];
         if (currentTask.Status === 'toDo') {
             document.getElementById('todo').innerHTML += `
-            <div>${currentTask.Title}<hr>
-            </div>
+            <p>
+            <h5>${currentTask.Title}</h5>
+            <h4>${currentTask.Status}</h4><hr>
+            <img src="" alt="picture load fail"</img>
+            </p>
+            <hr><hr>
             `;
         }
         if (currentTask.Status === "inProgress") {
