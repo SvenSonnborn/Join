@@ -16,11 +16,9 @@ loginButton.addEventListener("click", (e) => {
 
   if (username === "Admin" && password === "Admin") {
     alert("You have successfully logged in as an Admin.");
-    location.reload();
     location.href = "./welcome.html";
   } else if (username === "User" && password === "webdev") {
     alert("You have successfully logged in as a User.");
-    location.reload();
     location.href = "./welcome.html";
   } else if (username === "Guest" && password === "Guest") {
     alert("You have successfully logged in as a Guest.");

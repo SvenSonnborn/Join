@@ -7,7 +7,6 @@ let UsersSelected = [];
 let CurrentUser;
 let tasks = [];
 
-
 function ClearInput() {
   document.getElementById("Title").value = "";
   document.getElementById("Category").value = "Marketing";
@@ -37,6 +36,12 @@ function CreateJSON() {
     });
     backend.setItem("tasks", JSON.stringify(tasks));
   }
+  document.getElementById('Creationwindow').classList.remove('d-none');
+  let Timeout = setTimeout(UnshowCreation, 3000)
+
+}
+function UnshowCreation(){
+  document.getElementById('Creationwindow').classList.add('d-none');
 }
 
 function CreateArray() {

@@ -63,7 +63,7 @@ input{
     font-size: 1.2rem;
 }
 .d-none{
-    display: none;
+    display: none !important;
 }
 
 

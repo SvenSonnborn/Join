@@ -117,6 +117,22 @@
    height: 3rem;
 }
 
+.Creationwindow{
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   z-index: 5;
+   position: absolute;
+   left: 30%;
+   top: 30%;
+   width: 40%;
+   height: 40%;
+   background-color: gray;
+}
+.Creationwindow img{
+   width: 50%;
+}
+
 .UserBox {
    width: 27%;
    margin: 1%;
