@@ -14,7 +14,7 @@ loginButton.addEventListener("click", (e) => {
   let username = loginForm.username.value;
   let password = loginForm.password.value;
 
-  if (username === "Admin" && password === "Admin") {
+  if (username === "Admin" && password === "Projectleader") {
     alert("You have successfully logged in as an Admin.");
     location.href = "./welcome.html";
   } else if (username === "User" && password === "webdev") {
