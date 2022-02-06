@@ -60,8 +60,13 @@ function addBorderColor(currentTask, i) {
 function addTaskToBoard(i) {
     let taskToAdd = tasks[i];
     taskToAdd.Status = "toDo";
+    changeStatus(i);
     backlogTasks--;
     render();
+}
+
+async function changeStatus(i) {
+    await backend.setItem('tasks', JSON.stringify(tasks));
 }
 
 function deleteTask(i) {
