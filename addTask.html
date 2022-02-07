@@ -7,6 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join/Taskmanagment</title>
 
+    <!--Favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
+    <link rel="manifest" href="./img/site.webmanifest">
+
+
     <!--CSS FILES-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,64 +50,64 @@
             </div>
 
             <div class="selectionBox bgGray">
-                    <div class="doublebox">
-                        <div class="singlebox">
-                            <h3 class="maincolor">TITLE</h3>
-                            <input type="text" class="inputfield textInBox paddingInBox" placeholder="Type in Title"
-                                id="Title">
-                        </div>
-                        <div class="singlebox">
-                            <h3 class="maincolor">DUE DATE</h3>
-                            <div class="datepicker" id="Datepicker">
-                                <input class="inputfield pointer datepickerArea textInBox paddingInBox"
-                                    name="dateTimePicker" placeholder="Select a Date" id="DueDate">
-                                <img src="./img/icons8-calendar-150.png" class="Calender">
-                            </div>
+                <div class="doublebox">
+                    <div class="singlebox">
+                        <h3 class="maincolor">TITLE</h3>
+                        <input type="text" class="inputfield textInBox paddingInBox" placeholder="Type in Title"
+                            id="Title">
+                    </div>
+                    <div class="singlebox">
+                        <h3 class="maincolor">DUE DATE</h3>
+                        <div class="datepicker" id="Datepicker">
+                            <input class="inputfield pointer datepickerArea textInBox paddingInBox"
+                                name="dateTimePicker" placeholder="Select a Date" id="DueDate">
+                            <img src="./img/icons8-calendar-150.png" class="Calender">
                         </div>
                     </div>
-                    <div class="doublebox">
-                        <div class="singlebox">
-                            <h3 class="maincolor">CATEGORY</h3>
-                            <select name="Category" id="Category" class="inputfield pointer textInBox paddingInBox">
-                                <option value="Marketing">Marketing</option>
-                                <option value="Production">Production</option>
-                                <option value="Sale">Sale</option>
-                                <option value="Designer">Designer</option>
-                            </select>
-                        </div>
-                        <div class="singlebox">
-                            <h3 class="maincolor">URGENCY</h3>
-                            <select name="Urgency" id="Urgency" class="inputfield pointer textInBox paddingInBox">
-                                <option value="High">High</option>
-                                <option value="Mid">Mid</option>
-                                <option value="Low">Low</option>
-                            </select>
-                        </div>
+                </div>
+                <div class="doublebox">
+                    <div class="singlebox">
+                        <h3 class="maincolor">CATEGORY</h3>
+                        <select name="Category" id="Category" class="inputfield pointer textInBox paddingInBox">
+                            <option value="Marketing">Marketing</option>
+                            <option value="Production">Production</option>
+                            <option value="Sale">Sale</option>
+                            <option value="Designer">Designer</option>
+                        </select>
                     </div>
-                    <div class="doublebox">
-                        <div class="singlebox">
-                            <h3 class="maincolor">DESCRIPTION</h3>
-                            <textarea rows="4" cols="50" placeholder="Write the informative description"
-                                class="marginInBox textInBox paddingInBox" id="Description"></textarea>
-                        </div>
-                        <div class="singlebox assignedBox">
-                            <h3 class="maincolor">ASSIGNED TO</h3>
-                            <div class="Assigned" id="Assigned">
-                                <div class="Users" id="Users">
+                    <div class="singlebox">
+                        <h3 class="maincolor">URGENCY</h3>
+                        <select name="Urgency" id="Urgency" class="inputfield pointer textInBox paddingInBox">
+                            <option value="High">High</option>
+                            <option value="Mid">Mid</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="doublebox">
+                    <div class="singlebox">
+                        <h3 class="maincolor">DESCRIPTION</h3>
+                        <textarea rows="4" cols="50" placeholder="Write the informative description"
+                            class="marginInBox textInBox paddingInBox" id="Description"></textarea>
+                    </div>
+                    <div class="singlebox assignedBox">
+                        <h3 class="maincolor">ASSIGNED TO</h3>
+                        <div class="Assigned" id="Assigned">
+                            <div class="Users" id="Users">
 
-                                </div>
-                                <img src="./img/icon plus.png" class="marginInBox" onclick="ShowOverlay()">
                             </div>
+                            <img src="./img/icon plus.png" class="marginInBox" onclick="ShowOverlay()">
                         </div>
                     </div>
-                    <div class="Buttonbox">
-                        <button class="Button" onclick="ClearInput()">
-                            Clear Input
-                        </button>
-                        <button class="Button" onclick="CreateTask()">
-                            Create Tasks
-                        </button>
-                    </div>
+                </div>
+                <div class="Buttonbox">
+                    <button class="Button" onclick="ClearInput()">
+                        Clear Input
+                    </button>
+                    <button class="Button" onclick="CreateTask()">
+                        Create Tasks
+                    </button>
+                </div>
             </div>
         </div>
     </div>
