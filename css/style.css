@@ -52,7 +52,10 @@ input{
     position: absolute;
     top: 5%;
     left: 5%;
-    border: black solid 2px;
+    border-top: rgba(0, 0, 0, 0.5) solid 2px;
+    border-bottom: rgba(0, 0, 0, 0.5) solid 2px;
+    border-right: rgba(0, 0, 0, 0.5) solid 2px;
+
     border-radius: 2rem;
 }
 .Button{
