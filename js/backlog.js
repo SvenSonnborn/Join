@@ -86,6 +86,8 @@ function startEditMode(i) {
     let urgencySelector = document.getElementById(`urgency-${i}`);
     urgencySelector.style.appearance = "auto"; //show arrow for dropdown
     urgencySelector.classList.remove('deactivateClick');
+    let dueDateOverlay = document.getElementById(`overlayDueDate-${i}`)
+    dueDateOverlay.classList.add('d-none')
 
     createDueDatePicker(i);  // its not possible to have it created with the first render, bc it doesnt create multiple instances of DTSEL, only one at a time.
     btnChangeBgr(i);
@@ -105,13 +107,13 @@ function showMsgEmptyBacklog() {
 function saveTask(i) {
     let titleTask = document.getElementById(`titleContainer-${i}`).innerText;
     let textTask = document.getElementById(`textContainer-${i}`).innerText;
-    // let dueDate = document.getElementById(`input${i}`).value;
+    let dueDate = document.getElementById(`dueDate${i}`).value;
     let urgencyField = document.getElementById(`urgency-${i}`);
     let selectedUrgency = urgencyField.options[urgencyField.selectedIndex].value;
     tasks[i].Title = titleTask;
     tasks[i].Description = textTask;
     tasks[i].Urgency = selectedUrgency;
-    // tasks[i].DueDate = dueDate;
+    tasks[i].DueDate = dueDate;
 
     showEditBtn(i);
     removeEditMode(i);
@@ -153,6 +155,9 @@ function removeEditMode(i) {
 
     let dueDateInput = document.getElementById(`dueDate-${i}`);
     dueDateInput.classList.add('deactivateClick');
+
+    let dueDateOverlay = document.getElementById(`overlayDueDate-${i}`)
+    dueDateOverlay.classList.remove('d-none')
 }
 
 function generateTaskHTML(currentTask, i) {
@@ -167,24 +172,24 @@ function generateTaskHTML(currentTask, i) {
             </div>
 
             <div class="taskTimeline d-flex-center"> 
-                <span id="dueDate-${i}" >
+
+                <div id="dueDate-${i}" class="dueDate-container taskTimeline-container">
+                    <div id="overlayDueDate-${i}" class="overlay-preventEditing"></div>
                     <div class="material-icons">event</div>
                     <input name="dateTimePicker${i}" id="dueDate${i}" value="${currentTask.DueDate}">
-
-                    </span>
+                </div>
                 
-                <span>
-                    <div class="material-icons">av_timer</div>
-                    
+                <div class= "taskTimeline-container">
+                    <div class="material-icons">av_timer</div>      
                     <select id="urgency-${i}" name="Urgency" class="urgencySelector deactivateClick">
                         <option value="${currentTask.Urgency}" selected disabled >${currentTask.Urgency}</option>
                         <option value="High">High</option>
                         <option value="Mid">Mid</option>
                         <option value="Low">Low</option>
-                    </select>
-                    
-                </span>
+                    </select>   
+                </div>
             </div>
+
             <div class="taskDescription ">
                 <div id="titleContainer-${i}" class="titleTask">${currentTask.Title}</div>
                 <div id="textContainer-${i}" class="textTask">${currentTask.Description}</div>

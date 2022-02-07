@@ -73,6 +73,8 @@ header span {
     padding: 8px;
     background-color: rgba(211, 211, 211, 0.281);
     border-radius: 8px 0px 0px 8px;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .containerHeight {
@@ -105,14 +107,30 @@ header span {
 .taskTimeline {
     min-width: 100px;
     max-width: 100px;
-    margin-right: 50px;
+    margin-right: 40px;
+    margin-left: 30px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 0.4em;
 }
 
-.taskTimeline span {
+.dueDate-container{
+    position: relative;
+}
+
+.overlay-preventEditing{
+    position: absolute;
+    top: 0;
+    right:0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 3;
+}
+.taskTimeline-container{
     border: 1px solid rgba(121, 121, 121, 0.096);
     text-align: center;
     height: 1.4em;
@@ -125,6 +143,7 @@ header span {
     display: flex;
     box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
 }
+
 .taskTimeline .material-icons {
     margin-right: 10px;
     font-size: 1em;
@@ -175,6 +194,7 @@ header span {
     align-items: flex-start;
     overflow-x: hidden;
     max-width: 100%;
+    min-width: 150px;
 }
 
 .taskDescription .titleTask {
@@ -184,6 +204,7 @@ header span {
 
 .taskDescription .textTask {
     overflow-wrap: anywhere;
+    overflow:auto;
 }
 
 .placeholderDIV {
@@ -243,7 +264,7 @@ header span {
 
 /**  MOBILE  **/
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
     .tableHead {
         display: none;
     }
@@ -285,6 +306,7 @@ header span {
     .taskTimeline {
         align-items: flex-start;
         margin-right: 0px;
+        margin-left: 0px;
     }
 
     .containerHeight {
