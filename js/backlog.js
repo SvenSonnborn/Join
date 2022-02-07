@@ -1,13 +1,5 @@
 let backlogTasks;
 
-function createDueDatePicker(i) {
-    inputName = `dateTimePicker${i}`;
-    instance = new dtsel.DTS(`input[name=${inputName}]`, {
-        direction: 'BOTTOM',
-        dateFormat: "dd / mm / yyyy"
-    });
-}
-
 async function init() {
     await downloadFromServer();
     tasks = JSON.parse(backend.getItem("tasks")) || [];
@@ -36,6 +28,11 @@ function checkEmptyBacklog() {
     if (backlogTasks === 0) {
         showMsgEmptyBacklog();
     }
+}
+
+function showMsgEmptyBacklog() {
+    let container = document.getElementById('msgEmptyBacklog')
+    container.classList.remove('d-none')
 }
 
 function addBorderColor(currentTask, i) {
@@ -95,13 +92,12 @@ function startEditMode(i) {
 }
 
 
-function changeUser() {
-    console.log('changeUser')
-}
-
-function showMsgEmptyBacklog() {
-    let container = document.getElementById('msgEmptyBacklog')
-    container.classList.remove('d-none')
+function createDueDatePicker(i) {
+    inputName = `dateTimePicker${i}`;
+    instance = new dtsel.DTS(`input[name=${inputName}]`, {
+        direction: 'BOTTOM',
+        dateFormat: "dd / mm / yyyy"
+    });
 }
 
 function saveTask(i) {
@@ -118,6 +114,7 @@ function saveTask(i) {
     showEditBtn(i);
     removeEditMode(i);
     changeStatus();
+    render();  // is necessary, so it creates a new Datapicker, when a user want to edit again
 }
 
 // when edit-btn is clicked
