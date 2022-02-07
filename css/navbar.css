@@ -60,9 +60,10 @@
 @media (max-width: 900px) {
     .navbar{
         width: calc(100% - 0.6rem);
-        height: 7%; 
+        height: fit-content; 
         flex-direction: row;
         justify-content: space-between;
+        flex-wrap: wrap;
         border-radius: 0;
         padding: 0.3rem;
     }
@@ -70,9 +71,15 @@
         height: 2.4rem !important;
         width: auto !important;
     }
+
+    .navbar a{
+        margin: 6px;
+    }
     .nav-links{
         flex-direction: row;
         justify-content: space-evenly;
+        flex-wrap: wrap;
+
     }
     .img-user{
         display: none;
