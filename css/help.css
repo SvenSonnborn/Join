@@ -6,7 +6,6 @@
     margin-left: 2rem;
     margin-right: 2rem;
     padding-bottom: 2rem;
-    background-color: rgba(211, 211, 211, 0.397);
 }
 
 header{
@@ -18,7 +17,6 @@ header{
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    background: grey;
     height: 100%;
     width: 100%;
 }
