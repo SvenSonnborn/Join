@@ -1,5 +1,8 @@
-let backlogTasks;
+let backlogTasks;   
 
+/**
+ * onload funtion >> get task data from database+ include Navbar
+ */
 async function init() {
     await downloadFromServer();
     tasks = JSON.parse(backend.getItem("tasks")) || [];
@@ -8,6 +11,9 @@ async function init() {
     render();
 }
 
+/**
+ * MAIN RENDER: display all tasks with Status "backlog" 
+ */
 function render() {
     backlogTasks = 0;
     let mainContainer = document.getElementById('allTasks');
@@ -24,6 +30,9 @@ function render() {
     checkEmptyBacklog();
 }
 
+/**
+ * Check for need of Note when Backlog is empty 
+ */
 function checkEmptyBacklog() {
     if (backlogTasks === 0) {
         showMsgEmptyBacklog();
@@ -35,6 +44,11 @@ function showMsgEmptyBacklog() {
     container.classList.remove('d-none')
 }
 
+/**
+ * @param currentTask from render function
+ * @param i {index} from render function
+ * check task category and assign CSS-color
+ */
 function addBorderColor(currentTask, i) {
     if (currentTask.Category == 'Marketing') {
         let taskContainer = document.getElementById(`task-${i}`);
@@ -54,6 +68,10 @@ function addBorderColor(currentTask, i) {
     }
 }
 
+/**
+ * @param i from render function
+ * change property "Status" of a task to shift it to value: "board"
+ */
 function addTaskToBoard(i) {
     let taskToAdd = tasks[i];
     taskToAdd.Status = "toDo";
@@ -62,10 +80,17 @@ function addTaskToBoard(i) {
     render();
 }
 
+/**
+ * save tasks update in Database
+ */
 async function changeStatus() {
     await backend.setItem('tasks', JSON.stringify(tasks));
 }
 
+/**
+ * @param i {index} from render function
+ * delete task permantently from database
+ */
 function deleteTask(i) {
     let taskToDelete = tasks[i];
     taskToDelete.Status = "archived";
@@ -74,6 +99,10 @@ function deleteTask(i) {
     render();
 }
 
+/**
+ * @param i {index} from render function
+ * Make containers editable: Title, Description, DueDate, Urgency
+ */
 function startEditMode(i) {
     let titleContainer = document.getElementById(`titleContainer-${i}`);
     titleContainer.setAttribute("contenteditable", "true");
@@ -91,7 +120,10 @@ function startEditMode(i) {
     showSaveBtn(i);
 }
 
-
+/**
+ * @param i {index} from render function
+ * Create new DueDatePicker (see dtsel.js)
+ */
 function createDueDatePicker(i) {
     inputName = `dateTimePicker${i}`;
     instance = new dtsel.DTS(`input[name=${inputName}]`, {
@@ -100,6 +132,10 @@ function createDueDatePicker(i) {
     });
 }
 
+/**
+ * @param i {index} from render function
+ * save edited task
+ */
 function saveTask(i) {
     let titleTask = document.getElementById(`titleContainer-${i}`).innerText;
     let textTask = document.getElementById(`textContainer-${i}`).innerText;
@@ -117,12 +153,21 @@ function saveTask(i) {
     render();  // is necessary, so it creates a new Datapicker, when a user want to edit again
 }
 
-// when edit-btn is clicked
+/**
+ * @param i {index}
+ * @listens Edit Button clicked
+ * button bgr. change on press
+ */
 function btnChangeBgr(i) {
     let activeEditBtn = document.getElementById(`btn-edit-${i}`);
     activeEditBtn.classList.add('btn-active');
 }
 
+/**
+ * @param i {index}
+ * @listens Edit Button clicked
+ * change Edit button to Save Button layout
+ */
 function showSaveBtn(i) {
     let editBtn = document.getElementById(`btn-edit-${i}`);
     editBtn.classList.add('d-none');
@@ -131,14 +176,23 @@ function showSaveBtn(i) {
     saveBtn.classList.remove('d-none');
 }
 
+/**
+ * @param i {index}
+ * @listens Save Button clicked
+ * change save button to edit button icon and funtionalities 
+ */
 function showEditBtn(i) {
     let editBtn = document.getElementById(`btn-edit-${i}`);
-    editBtn.classList.remove('d-none');
-
     let saveBtn = document.getElementById(`btn-save-${i}`)
     saveBtn.classList.add('d-none');
+    editBtn.classList.remove('d-none');
 }
 
+/**
+ * @param i {index}
+ * @listens Edit Button clicked
+ * change alle Edit functionalities to Save Mode functionalities
+ */
 function removeEditMode(i) {
     let titleContainer = document.getElementById(`titleContainer-${i}`);
     titleContainer.setAttribute("contenteditable", "false");
@@ -157,6 +211,11 @@ function removeEditMode(i) {
     dueDateOverlay.classList.remove('d-none')
 }
 
+/**
+ * @param i and currentTask from render function
+ * @listens Edit Button clicked
+ * @returns HTML code for a single Task container with all content
+ */
 function generateTaskHTML(currentTask, i) {
     return `<div class="taskContainer-wrapper d-flex-center box-shadow">
     <div class="taskContainer containerHeight" id="task-${i}">
