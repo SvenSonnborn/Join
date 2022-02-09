@@ -1,4 +1,4 @@
-let backlogTasks;   
+let numberBacklogTasks;   // counter to verfiy if backlog is empty
 
 /**
  * onload funtion >> get task data from database+ include Navbar
@@ -15,14 +15,14 @@ async function init() {
  * MAIN RENDER: display all tasks with Status "backlog" 
  */
 function render() {
-    backlogTasks = 0;
+    numberBacklogTasks = 0;
     let mainContainer = document.getElementById('allTasks');
     mainContainer.innerHTML = '';
 
     for (let i = 0; i < tasks.length; i++) {
         let currentTask = tasks[i];
         if (currentTask.Status === "backlog") {
-            backlogTasks++;
+            numberBacklogTasks++;
             mainContainer.innerHTML += generateTaskHTML(currentTask, i);
             addBorderColor(currentTask, i);
         }
@@ -31,10 +31,10 @@ function render() {
 }
 
 /**
- * Check for need of Note when Backlog is empty 
+ * checks variable numberBacklogTasks to show Note for empty Backlog 
  */
 function checkEmptyBacklog() {
-    if (backlogTasks === 0) {
+    if (numberBacklogTasks === 0) {
         showMsgEmptyBacklog();
     }
 }
@@ -45,8 +45,8 @@ function showMsgEmptyBacklog() {
 }
 
 /**
- * @param currentTask from render function
- * @param i {index} from render function
+ * @param currentTask - task with current index
+ * @param {integer} i - task index
  * check task category and assign CSS-color
  */
 function addBorderColor(currentTask, i) {
@@ -54,7 +54,7 @@ function addBorderColor(currentTask, i) {
         let taskContainer = document.getElementById(`task-${i}`);
         taskContainer.classList.add('color-marketing');
     }
-    if (currentTask.Category == 'Sales') {
+    if (currentTask.Category == 'Sale') {
         let taskContainer = document.getElementById(`task-${i}`);
         taskContainer.classList.add('color-sales');
     }
@@ -69,14 +69,14 @@ function addBorderColor(currentTask, i) {
 }
 
 /**
- * @param i from render function
+ * @param {integer} i - task index
  * change property "Status" of a task to shift it to value: "board"
  */
 function addTaskToBoard(i) {
     let taskToAdd = tasks[i];
     taskToAdd.Status = "toDo";
     changeStatus();
-    backlogTasks--;
+    numberBacklogTasks--;
     render();
 }
 
@@ -88,19 +88,19 @@ async function changeStatus() {
 }
 
 /**
- * @param i {index} from render function
+ * @param {integer} i - task index
  * delete task permantently from database
  */
 function deleteTask(i) {
     let taskToDelete = tasks[i];
     taskToDelete.Status = "archived";
     changeStatus();
-    backlogTasks--;
+    numberBacklogTasks--;
     render();
 }
 
 /**
- * @param i {index} from render function
+ * @param {integer} i - task index
  * Make containers editable: Title, Description, DueDate, Urgency
  */
 function startEditMode(i) {
@@ -121,7 +121,7 @@ function startEditMode(i) {
 }
 
 /**
- * @param i {index} from render function
+ * @param {integer} i - task index
  * Create new DueDatePicker (see dtsel.js)
  */
 function createDueDatePicker(i) {
@@ -133,7 +133,7 @@ function createDueDatePicker(i) {
 }
 
 /**
- * @param i {index} from render function
+ * @param {integer} i - task index
  * save edited task
  */
 function saveTask(i) {
@@ -154,7 +154,7 @@ function saveTask(i) {
 }
 
 /**
- * @param i {index}
+ * @param {integer} i - task index
  * @listens Edit Button clicked
  * button bgr. change on press
  */
@@ -164,7 +164,7 @@ function btnChangeBgr(i) {
 }
 
 /**
- * @param i {index}
+ * @param {integer} i - task index
  * @listens Edit Button clicked
  * change Edit button to Save Button layout
  */
@@ -177,7 +177,7 @@ function showSaveBtn(i) {
 }
 
 /**
- * @param i {index}
+ * @param {integer} i - task index
  * @listens Save Button clicked
  * change save button to edit button icon and funtionalities 
  */
@@ -189,7 +189,7 @@ function showEditBtn(i) {
 }
 
 /**
- * @param i {index}
+ * @param {integer} i - task index
  * @listens Edit Button clicked
  * change alle Edit functionalities to Save Mode functionalities
  */
@@ -212,7 +212,7 @@ function removeEditMode(i) {
 }
 
 /**
- * @param i and currentTask from render function
+ * @param {integer} i - task index
  * @listens Edit Button clicked
  * @returns HTML code for a single Task container with all content
  */
