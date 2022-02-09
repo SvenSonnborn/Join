@@ -65,6 +65,10 @@ header span {
 
 /* Single Task Container */
 
+.msgEmptyBacklog{
+    align-items: center!important;
+}
+
 .taskContainer {
     width: 100%;
     display: flex;
@@ -200,11 +204,13 @@ header span {
 .taskDescription .titleTask {
     font-weight: 700;
     overflow-wrap: anywhere;
+    width: 95%!important;
 }
 
 .taskDescription .textTask {
     overflow-wrap: anywhere;
     overflow:auto;
+    width: 95%!important;
 }
 
 .placeholderDIV {
@@ -265,6 +271,8 @@ header span {
 /**  MOBILE  **/
 
 @media (max-width: 900px) {
+
+    
     .tableHead {
         display: none;
     }
