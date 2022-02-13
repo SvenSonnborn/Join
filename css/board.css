@@ -53,8 +53,9 @@
     background-color:rgb(228, 165, 17);
 }
 
-.singleTask:hover{
+.singleTask a:hover{
     cursor: pointer;
+    text-decoration: underline;
 }
 
 .OverlayBackground {

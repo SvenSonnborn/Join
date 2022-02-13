@@ -13,35 +13,55 @@ async function init() {
 
 function render() {
   document.getElementById("todo").innerHTML = "";
+  document.getElementById("inprogress").innerHTML = "";
+  document.getElementById("test").innerHTML = "";
+  document.getElementById("done").innerHTML = "";
+
+
   for (let i = 0; i < tasks.length; i++) {
     let currentTask = tasks[i];
     if (currentTask.Status === "toDo") {
       document.getElementById("todo").innerHTML += `
-            <div id="task-${i}" class="singleTask" onclick="ShowOverlay(${i})">
+            <div id="task-${i}" class="singleTask">
             <h4>Titel: ${currentTask.Title}</h4>
-            <h5>Assigned to: ${currentTask.Assigned.Name}</h5><hr>
+            <h5>Assigned to: ${currentTask.Assigned.Name}</h5>
+            <a onclick="ShowOverlay(${i})">See more</a>
             </div>
-            <hr><hr>
             `;
       addBackgroundColor(currentTask, i);
     }
     if (currentTask.Status === "inProgress") {
       document.getElementById("inprogress").innerHTML += `
-            <div>${currentTask.Title}<hr>
-            </div>
-            `;
+      <div id="task-${i}" class="singleTask">
+
+      <h4>Titel: ${currentTask.Title}</h4>
+      <h5>Assigned to: ${currentTask.Assigned.Name}</h5>
+      <a onclick="ShowOverlay(${i})">See more</a>
+      </div>
+      `;
+      addBackgroundColor(currentTask, i);
     }
     if (currentTask.Status === "test") {
       document.getElementById("test").innerHTML += `
-            <div>${currentTask.Title}<hr>
-            </div>
-            `;
+      <div id="task-${i}" class="singleTask">
+
+      <h4>Titel: ${currentTask.Title}</h4>
+      <h5>Assigned to: ${currentTask.Assigned.Name}</h5>
+      <a onclick="ShowOverlay(${i})">See more</a>
+      </div>
+      `;
+      addBackgroundColor(currentTask, i);
     }
     if (currentTask.Status === "done") {
       document.getElementById("done").innerHTML += `
-            <div>${currentTask.Title}<hr>
-            </div>
-            `;
+      <div id="task-${i}" class="singleTask">
+
+      <h4>Titel: ${currentTask.Title}</h4>
+      <h5>Assigned to: ${currentTask.Assigned.Name}</h5>
+      <a onclick="ShowOverlay(${i})">See more</a>
+      </div>
+      `;
+      addBackgroundColor(currentTask, i);
     }
   }
   /* checkEmptyTodo(); */
@@ -60,7 +80,7 @@ function showMsgEmptyTodo() {
 function addBackgroundColor(currentTask, i) {
   if (currentTask.Category == "Marketing") {
     let taskContainer = document.getElementById(`task-${i}`);
-    taskContainer.classList.add("color-marketing-background");
+    taskContainer.classList.add('color-marketing-background');
   }
   if (currentTask.Category == "Sale") {
     let taskContainer = document.getElementById(`task-${i}`);
@@ -83,11 +103,12 @@ function ShowOverlay(i) {
 
 function CloseOverlay() {
   document.getElementById("Descriptionoverlay").classList.add("d-none");
+  render();
 }
 
 function RenderDescription(i) {
   let selection = document.getElementById("Descriptionbox");
-  let currentTask = user[i];
+  let currentTask = tasks[i];
   selection.innerHTML = `
   <h4>Titel: ${currentTask.Title}</h4>
   <h5>Assigned to: ${currentTask.Assigned.Name}</h5>
@@ -100,20 +121,21 @@ function RenderDescription(i) {
     <option value="inProgress">In Progress</option>
     <option value="test">Test</option>
     <option value="done">Done</option>
-  /select>
-  <button class="SaveButton" onclick="UpdateTask(i)">
+  </select>
+  <button class="SaveButton" onclick="UpdateTask(${i})">
     Save Statuschange
   </button>
   `;
 }
 
-function UpdateTask(i){
-  let StatusChange = document.getElementById("Status").innerText;
+function UpdateTask(i) {
+  let StatusChange = document.getElementById("Status").value;
   tasks[i].Status = StatusChange;
   changeStatus();
+  CloseOverlay()
   render();
 }
 
 async function changeStatus() {
-  await backend.setItem('tasks', JSON.stringify(tasks));
+  await backend.setItem("tasks", JSON.stringify(tasks));
 }
