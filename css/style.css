@@ -65,11 +65,19 @@ input{
     color: white;
     font-size: 1.2rem;
 }
+
 .d-none{
     display: none !important;
 }
 
-
+.CloseImg {
+    position: absolute;
+    z-index: 5;
+    top: 1rem;
+    right: 1rem;
+    width: 3rem;
+    height: 3rem;
+ }
 
 .color-sales{
     border-left: 9px solid rgb(159, 192, 98);

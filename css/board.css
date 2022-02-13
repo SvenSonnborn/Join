@@ -36,3 +36,42 @@
     margin-left: 5%;
     margin-right: 5%;
 }
+.color-sales{
+    background-color: 9px solid rgb(159, 192, 98);
+
+}
+
+.color-marketing-background{
+    background-color:rgb(173, 70, 177);
+}
+
+.color-production-background{
+    background-color:rgb(4, 179, 179);
+}
+
+.color-designer-background{
+    background-color:rgb(228, 165, 17);
+}
+
+.singleTask:hover{
+    cursor: pointer;
+}
+
+.OverlayBackground {
+    position: absolute;
+    background-color: rgba(128, 128, 128, 0.856);
+    width: 100vw;
+    height: 100vh;
+ }
+
+ .Descriptionbox{
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    z-index: 2;
+    width: 60%;
+    height: 28rem;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: scroll;
+ }
