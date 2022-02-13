@@ -17,7 +17,6 @@ function render() {
   document.getElementById("test").innerHTML = "";
   document.getElementById("done").innerHTML = "";
 
-
   for (let i = 0; i < tasks.length; i++) {
     let currentTask = tasks[i];
     if (currentTask.Status === "toDo") {
@@ -73,7 +72,7 @@ function showMsgEmptyTodo() {
 function addBackgroundColor(currentTask, i) {
   if (currentTask.Category == "Marketing") {
     let taskContainer = document.getElementById(`task-${i}`);
-    taskContainer.classList.add('color-marketing');
+    taskContainer.classList.add("color-marketing");
   }
   if (currentTask.Category == "Sale") {
     let taskContainer = document.getElementById(`task-${i}`);
@@ -103,12 +102,19 @@ function RenderDescription(i) {
   let selection = document.getElementById("Descriptionbox");
   let currentTask = tasks[i];
   selection.innerHTML = `
-  <h4>Titel: ${currentTask.Title}</h4>
-  <h5>Assigned to: ${currentTask.Assigned.Name}</h5>
-  <h5>Due Date : ${currentTask.DueDate}</h5>
-  <h5>Category : ${currentTask.Category}</h5>
-  <h5>Urgency : ${currentTask.Urgency}</h5>
-  <h5>Description : ${currentTask.Description}</h5>
+  <div class="innerDescription">
+  <h3 class="whitecolor textCenter"><u>Titel:</u><br></h3> 
+  <h4>${currentTask.Title}</h4>
+  <h3 class="whitecolor textCenter "><u>Assigned to:</u><br></h3>
+  <h4>${currentTask.Assigned.Name}</h4>
+  <h3 class="whitecolor textCenter"><u>Due Date:</u><br></h3> 
+  <h4>${currentTask.DueDate}</h4>
+  <h3 class="whitecolor textCenter"><u>Category:</u><br></h3> 
+  <h4>${currentTask.Category}</h4>
+  <h3 class="whitecolor textCenter"><u>Urgency:</u><br></h3> 
+  <h4>${currentTask.Urgency}</h4>
+  <h3 class="whitecolor textCenter"><u>Description</u>:<br></h3> 
+  <h4 style="text-align:center">${currentTask.Description}</h4>
   <select name="Status" id="Status" class="inputfield pointer textInBox paddingInBox" value="${currentTask.Status}">
     <option value="toDo">To Do</option>
     <option value="inProgress">In Progress</option>
@@ -118,6 +124,7 @@ function RenderDescription(i) {
   <button class="SaveButton" onclick="UpdateTask(${i})">
     Save Statuschange
   </button>
+  </div>
   `;
 }
 
@@ -125,7 +132,7 @@ function UpdateTask(i) {
   let StatusChange = document.getElementById("Status").value;
   tasks[i].Status = StatusChange;
   changeStatus();
-  CloseOverlay()
+  CloseOverlay();
   render();
 }
 
