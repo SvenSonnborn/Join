@@ -19,43 +19,45 @@
     position: relative;
     display: flex;
     width: 100%;
+    justify-content: space-around;
 }
 
 .status {
-    margin-top: 1 rem;
+    background-color: white;
+    border: solid 2px black;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     position: relative;
     text-align: center;
-    width: 25%;
+    width: 22%;
 }
 
-.field {
-    background-color: rgba(128, 128, 128, 0.856);
+.field {    
     height: 80%;
     margin-top: 12%;
     margin-bottom: 8%;
     margin-left: 5%;
     margin-right: 5%;
 }
-.color-sales{
-    background-color: 9px solid rgb(159, 192, 98);
-
-}
-
-.color-marketing-background{
-    background-color:rgb(173, 70, 177);
-}
-
-.color-production-background{
-    background-color:rgb(4, 179, 179);
-}
-
-.color-designer-background{
-    background-color:rgb(228, 165, 17);
-}
 
 .singleTask a:hover{
     cursor: pointer;
     text-decoration: underline;
+}
+
+.singleTask a{
+    font-size: 0.8rem;
+    color: blue;
+}
+
+.singleTask{
+    gap: 1rem;
+    background-color: rgba(211, 211, 211, 0.281);
+    border: black solid 1px;
+    padding: 0.4rem;
+    border-radius: 0.4rem;
+    margin: 3%;
 }
 
 .OverlayBackground {

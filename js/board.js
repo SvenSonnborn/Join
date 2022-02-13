@@ -23,9 +23,8 @@ function render() {
     if (currentTask.Status === "toDo") {
       document.getElementById("todo").innerHTML += `
             <div id="task-${i}" class="singleTask">
-            <h4>Titel: ${currentTask.Title}</h4>
-            <h5>Assigned to: ${currentTask.Assigned.Name}</h5>
-            <a onclick="ShowOverlay(${i})">See more</a>
+            <h4>${currentTask.Title}</h4>
+            <a onclick="ShowOverlay(${i})">Show detailed</a>
             </div>
             `;
       addBackgroundColor(currentTask, i);
@@ -33,9 +32,7 @@ function render() {
     if (currentTask.Status === "inProgress") {
       document.getElementById("inprogress").innerHTML += `
       <div id="task-${i}" class="singleTask">
-
-      <h4>Titel: ${currentTask.Title}</h4>
-      <h5>Assigned to: ${currentTask.Assigned.Name}</h5>
+      <h4>${currentTask.Title}</h4>
       <a onclick="ShowOverlay(${i})">See more</a>
       </div>
       `;
@@ -44,9 +41,7 @@ function render() {
     if (currentTask.Status === "test") {
       document.getElementById("test").innerHTML += `
       <div id="task-${i}" class="singleTask">
-
-      <h4>Titel: ${currentTask.Title}</h4>
-      <h5>Assigned to: ${currentTask.Assigned.Name}</h5>
+      <h3>${currentTask.Title}</h3>
       <a onclick="ShowOverlay(${i})">See more</a>
       </div>
       `;
@@ -55,9 +50,7 @@ function render() {
     if (currentTask.Status === "done") {
       document.getElementById("done").innerHTML += `
       <div id="task-${i}" class="singleTask">
-
-      <h4>Titel: ${currentTask.Title}</h4>
-      <h5>Assigned to: ${currentTask.Assigned.Name}</h5>
+      <h4>${currentTask.Title}</h4>
       <a onclick="ShowOverlay(${i})">See more</a>
       </div>
       `;
@@ -80,19 +73,19 @@ function showMsgEmptyTodo() {
 function addBackgroundColor(currentTask, i) {
   if (currentTask.Category == "Marketing") {
     let taskContainer = document.getElementById(`task-${i}`);
-    taskContainer.classList.add('color-marketing-background');
+    taskContainer.classList.add('color-marketing');
   }
   if (currentTask.Category == "Sale") {
     let taskContainer = document.getElementById(`task-${i}`);
-    taskContainer.classList.add("color-sales-background");
+    taskContainer.classList.add("color-sales");
   }
   if (currentTask.Category == "Production") {
     let taskContainer = document.getElementById(`task-${i}`);
-    taskContainer.classList.add("color-production-background");
+    taskContainer.classList.add("color-production");
   }
   if (currentTask.Category == "Designer") {
     let taskContainer = document.getElementById(`task-${i}`);
-    taskContainer.classList.add("color-designer-background");
+    taskContainer.classList.add("color-designer");
   }
 }
 

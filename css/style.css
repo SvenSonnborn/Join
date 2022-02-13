@@ -80,20 +80,20 @@ input{
  }
 
 .color-sales{
-    border-left: 9px solid rgb(159, 192, 98);
+    border-left: 9px solid rgb(159, 192, 98) !important;
 
 }
 
 .color-marketing{
-    border-left: 9px solid rgb(173, 70, 177);
+    border-left: 9px solid rgb(173, 70, 177) !important;
 }
 
 .color-production{
-    border-left: 9px solid rgb(4, 179, 179);
+    border-left: 9px solid rgb(4, 179, 179) !important;
 }
 
 .color-designer{
-    border-left: 9px solid rgb(228, 165, 17);
+    border-left: 9px solid rgb(228, 165, 17) !important;
 }
 
 @media (max-width: 900px) {
