@@ -19,11 +19,8 @@ function render() {
   for (let i = 0; i < tasks.length; i++) {
     let currentTask = tasks[i];
     let currentTaskStatus = currentTask.Status;
-    if (currentTaskStatus === "archived" || currentTaskStatus === "backlog") {
-      console.log('archived or backlog')
-    }
-    else {
-      document.getElementById(currentTaskStatus).innerHTML +=
+    if (currentTaskStatus === "toDo" || currentTaskStatus === "inProgress" || currentTaskStatus === "test" || currentTaskStatus === "done") {
+          document.getElementById(currentTaskStatus).innerHTML +=
         `<div draggable="true" ondragstart="drag(event)" id="task-${i}" class="singleTask">
                 <h4>${currentTask.Title}</h4>
                 <a onclick="ShowOverlay(${i})">Show detailed</a>
@@ -55,7 +52,7 @@ function moveTo(ev) {
 
 function changeStatusAfterDragging(taskName, targetDiv) {
   let indexCurrentTask = taskName.replace(/\D/g,'');  // extracts the number from a string (e.g. taskName is task-1) to get the index >> 1
-  let newStatus = targetDiv.id
+  let newStatus = targetDiv.id;
   tasks[indexCurrentTask].Status = newStatus;
   changeStatus();  // saves to backend
   render();
