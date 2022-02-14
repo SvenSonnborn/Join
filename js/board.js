@@ -13,7 +13,7 @@ async function init() {
 
 function render() {
   document.getElementById("todo").innerHTML = "";
-  document.getElementById("inprogress").innerHTML = "";
+  document.getElementById("inProgress").innerHTML = "";
   document.getElementById("test").innerHTML = "";
   document.getElementById("done").innerHTML = "";
 
@@ -29,7 +29,7 @@ function render() {
       addBackgroundColor(currentTask, i);
     }
     if (currentTask.Status === "inProgress") {
-      document.getElementById("inprogress").innerHTML += `
+      document.getElementById("inProgress").innerHTML += `
       <div id="task-${i}" class="singleTask">
       <h4>${currentTask.Title}</h4>
       <a onclick="ShowOverlay(${i})">See more</a>
