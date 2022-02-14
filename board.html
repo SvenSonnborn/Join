@@ -43,22 +43,29 @@
         <div class="board">
             <div class="status">
                 <h3>TO DO</h3>
-                <div class="field" id="todo">
+                <div class="field" id="toDo" ondrop="moveTo(event)" ondragover="allowDrop(event)">
+                    <!-- TODO tasks go here -->
                 </div>
             </div>
             <div class="status">
                 <h3>IN PROGRESS</h3>
-                <div class="field" id="inProgress">
+                <div class="field" id="inProgress" ondrop="moveTo(event)" ondragover="allowDrop(event)">
+                    <!-- IN PROGRESS tasks go here -->
+
                 </div>
             </div>
             <div class="status">
                 <h3>TEST</h3>
-                <div class="field" id="test">
+                <div class="field" id="test" ondrop="moveTo(event)" ondragover="allowDrop(event)">
+                    <!-- TEST tasks go here -->
+
                 </div>
             </div>
             <div class="status">
                 <h3>DONE</h3>
-                <div class="field" id="done">
+                <div class="field" id="done" ondrop="moveTo(event)" ondragover="allowDrop(event)">
+                    <!-- DONE tasks go here -->
+
                 </div>
             </div>
 
