@@ -21,10 +21,25 @@ header{
 .helpSection{
     display: flex;
     align-items: flex-start;
+    justify-content: flex-start;
     flex-direction: column;
     height: 100%;
     width: 100%;
     overflow: auto;
+}
+
+.img-help{
+    max-width: 100%;
+    margin-bottom: 70px;
+}
+
+.mt-30{
+    margin-top: 30px;
+}
+
+.helpimages{
+    width: 100%;
+    max-width: 1000px;
 }
 
 
