@@ -1,7 +1,7 @@
 let numberBacklogTasks;   // counter to verfiy if backlog is empty
 
 /**
- * onload funtion >> get task data from database+ include Navbar
+ *  Get data from storage + include Navbar
  */
 async function init() {
     await downloadFromServer();
@@ -45,7 +45,7 @@ function showMsgEmptyBacklog() {
 }
 
 /**
- * @param currentTask - task with current index
+ * @param {object} currentTask  task with current index
  * @param {integer} i - task index
  * check task category and assign CSS-color
  */

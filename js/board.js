@@ -41,10 +41,11 @@ function render() {
 }
 
 function generateTaskHTML(i){
-return `<div draggable="true" ondragstart="drag(event)" id="task-${i}" class="singleTask">
-<h4>${tasks[i].Title}</h4>
-<a onclick="ShowOverlay(${i})">Show detailed</a>
-</div>
+return `
+        <div draggable="true" ondragstart="drag(event)" id="task-${i}" class="singleTask">
+              <h4>${tasks[i].Title}</h4>
+              <a onclick="ShowOverlay(${i})">Show detailed</a>
+        </div>
 `}
 
 
