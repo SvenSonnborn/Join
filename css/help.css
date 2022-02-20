@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 p{
     margin-top: 20px;
     margin-bottom: 20px;
@@ -55,11 +58,15 @@ header{
     max-width: 1000px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
 
+    .navbar{
+        width: 100%;
+    }
     .mainContainer {
         margin-left: 0px; 
         margin-right: 0px;
+        margin:auto;
     }
 
     .Complete{

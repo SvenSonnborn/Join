@@ -59,7 +59,7 @@
 
 @media (max-width: 900px) {
     .navbar{
-        width: calc(100% - 0.6rem);
+        width: 100%;
         height: fit-content; 
         flex-direction: row;
         justify-content: space-between;
