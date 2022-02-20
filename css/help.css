@@ -1,12 +1,12 @@
-*{
+* {
     box-sizing: border-box;
 }
-p{
+p {
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-.mainContainer{
+.mainContainer {
     width: 100%;
     display: flex;
     align-items: flex-start;
@@ -16,12 +16,12 @@ p{
     padding-bottom: 2rem;
 }
 
-header{
+header {
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
-.helpSection{
+.helpSection {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -43,41 +43,37 @@ header{
     padding-bottom: 1rem;
 }
 
-
-.img-help{
+.img-help {
     max-width: 100%;
     margin-bottom: 70px;
 }
 
-.mt-30{
+.mt-30 {
     margin-top: 30px;
 }
 
-.helpimages{
+.helpimages {
     width: 100%;
     max-width: 1000px;
 }
 
 @media (max-width: 900px) {
-
-    .navbar{
+    .navbar {
         width: 100%;
     }
     .mainContainer {
-        margin-left: 0px; 
+        margin-left: 0px;
         margin-right: 0px;
-      padding-left: 1em;
-      padding-right: 1em;
+        padding-left: 1em;
+        padding-right: 1em;
     }
 
-    .Complete{
+    .Complete {
         width: 100%;
         word-wrap: break-word;
     }
-    
-    .helpimages{
+
+    .helpimages {
         width: 90%;
     }
 }
-
-
